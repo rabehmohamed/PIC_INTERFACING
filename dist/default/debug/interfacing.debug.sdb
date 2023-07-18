@@ -1,0 +1,182 @@
+[p GLOBOPT AUTOSTATIC IEEE_FLT IEEE_DBL LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F4620 ]
+[d frameptr 4065 ]
+"37 G:\Embedded\Rabeh\interfacing\MCAL_Layer/GPIO/hal_gpio.c
+[e E2484 . `uc
+GPIO_DIRECTION_OUTPUT 0
+GPIO_DIRECTION_INPUT 1
+]
+"74
+[e E2480 . `uc
+GPIO_LOW 0
+GPIO_HIGH 1
+]
+"165
+[e E2498 . `uc
+PORTA_INDEX 0
+PORTB_INDEX 1
+PORTC_INDEX 2
+PORTD_INDEX 3
+PORTE_INDEX 4
+]
+"14 G:\Embedded\Rabeh\interfacing\application.c
+[e E2819 . `uc
+PORTA_INDEX 0
+PORTB_INDEX 1
+PORTC_INDEX 2
+PORTD_INDEX 3
+PORTE_INDEX 4
+]
+[e E2809 . `uc
+GPIO_PIN0 0
+GPIO_PIN1 1
+GPIO_PIN2 2
+GPIO_PIN3 3
+GPIO_PIN4 4
+GPIO_PIN5 5
+GPIO_PIN6 6
+GPIO_PIN7 7
+]
+[e E2805 . `uc
+GPIO_DIRECTION_OUTPUT 0
+GPIO_DIRECTION_INPUT 1
+]
+[e E2801 . `uc
+GPIO_LOW 0
+GPIO_HIGH 1
+]
+"48
+[v _main main `(i  1 e 2 0 ]
+"4 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\fleq.c
+[v ___fleq __fleq `(b  1 e 0 0 ]
+"62 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\float.c
+[v ___ftpack __ftpack `(f  1 e 4 0 ]
+"86 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 4 0 ]
+"54 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 4 0 ]
+"62 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\ftmul.c
+[v ___ftmul __ftmul `(f  1 e 4 0 ]
+"19 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\ftsub.c
+[v ___ftsub __ftsub `(f  1 e 4 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"245
+[v ___flsub __flsub `(d  1 e 4 0 ]
+"11 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+"8 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+"15 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"91 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\Umul64.c
+[v ___omul __omul `(uo  1 e 8 0 ]
+"22 G:\Embedded\Rabeh\interfacing\MCAL_Layer/GPIO/hal_gpio.c
+[v _gpio_pin_direction_initialize gpio_pin_direction_initialize `(uc  1 e 1 0 ]
+"74
+[v _gpio_pin_write_logic gpio_pin_write_logic `(uc  1 e 1 0 ]
+"165
+[v _gpio_port_direction_initialize gpio_port_direction_initialize `(uc  1 e 1 0 ]
+"186
+[v _gpio_port_get_direction_status gpio_port_get_direction_status `(uc  1 e 1 0 ]
+"208
+[v _gpio_port_write_logic gpio_port_write_logic `(uc  1 e 1 0 ]
+"229
+[v _gpio_port_read_logic gpio_port_read_logic `(uc  1 e 1 0 ]
+"42 G:\Embedded\Rabeh\interfacing\application.c
+[v _ret ret `uc  1 e 1 0 ]
+"45
+[v _portc_direction_status portc_direction_status `uc  1 e 1 0 ]
+"46
+[v _portc_logic portc_logic `uc  1 e 1 0 ]
+"52 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4620.h
+[v _PORTA PORTA `VEuc  1 e 1 @3968 ]
+"189
+[v _PORTB PORTB `VEuc  1 e 1 @3969 ]
+"360
+[v _PORTC PORTC `VEuc  1 e 1 @3970 ]
+"535
+[v _PORTD PORTD `VEuc  1 e 1 @3971 ]
+"677
+[v _PORTE PORTE `VEuc  1 e 1 @3972 ]
+"880
+[v _LATA LATA `VEuc  1 e 1 @3977 ]
+"992
+[v _LATB LATB `VEuc  1 e 1 @3978 ]
+"1104
+[v _LATC LATC `VEuc  1 e 1 @3979 ]
+"1216
+[v _LATD LATD `VEuc  1 e 1 @3980 ]
+"1328
+[v _LATE LATE `VEuc  1 e 1 @3981 ]
+"1380
+[v _TRISA TRISA `VEuc  1 e 1 @3986 ]
+"1602
+[v _TRISB TRISB `VEuc  1 e 1 @3987 ]
+"1824
+[v _TRISC TRISC `VEuc  1 e 1 @3988 ]
+"2046
+[v _TRISD TRISD `VEuc  1 e 1 @3989 ]
+"2268
+[v _TRISE TRISE `VEuc  1 e 1 @3990 ]
+"10 G:\Embedded\Rabeh\interfacing\MCAL_Layer/GPIO/hal_gpio.c
+[v _tris_register tris_register `[5]*.39VEuc  1 e 10 0 ]
+"11
+[v _lat_register lat_register `[5]*.39VEuc  1 e 10 0 ]
+"12
+[v _port_register port_register `[5]*.39VEuc  1 e 10 0 ]
+"48 G:\Embedded\Rabeh\interfacing\application.c
+[v _main main `(i  1 e 2 0 ]
+{
+"80
+} 0
+"208 G:\Embedded\Rabeh\interfacing\MCAL_Layer/GPIO/hal_gpio.c
+[v _gpio_port_write_logic gpio_port_write_logic `(uc  1 e 1 0 ]
+{
+[v gpio_port_write_logic@port port `E2498  1 a 1 wreg ]
+"209
+[v gpio_port_write_logic@ret ret `uc  1 a 1 3 ]
+"208
+[v gpio_port_write_logic@port port `E2498  1 a 1 wreg ]
+[v gpio_port_write_logic@logic logic `uc  1 p 1 0 ]
+[v gpio_port_write_logic@port port `E2498  1 a 1 4 ]
+"217
+} 0
+"229
+[v _gpio_port_read_logic gpio_port_read_logic `(uc  1 e 1 0 ]
+{
+[v gpio_port_read_logic@port port `E2498  1 a 1 wreg ]
+"230
+[v gpio_port_read_logic@ret ret `uc  1 a 1 4 ]
+"229
+[v gpio_port_read_logic@port port `E2498  1 a 1 wreg ]
+[v gpio_port_read_logic@logic logic `*.39E2480  1 p 2 0 ]
+[v gpio_port_read_logic@port port `E2498  1 a 1 5 ]
+"238
+} 0
+"186
+[v _gpio_port_get_direction_status gpio_port_get_direction_status `(uc  1 e 1 0 ]
+{
+[v gpio_port_get_direction_status@port port `E2498  1 a 1 wreg ]
+"187
+[v gpio_port_get_direction_status@ret ret `uc  1 a 1 4 ]
+"186
+[v gpio_port_get_direction_status@port port `E2498  1 a 1 wreg ]
+[v gpio_port_get_direction_status@direction_status direction_status `*.39E2484  1 p 2 0 ]
+[v gpio_port_get_direction_status@port port `E2498  1 a 1 5 ]
+"195
+} 0
+"165
+[v _gpio_port_direction_initialize gpio_port_direction_initialize `(uc  1 e 1 0 ]
+{
+[v gpio_port_direction_initialize@port port `E2498  1 a 1 wreg ]
+"166
+[v gpio_port_direction_initialize@ret ret `uc  1 a 1 3 ]
+"165
+[v gpio_port_direction_initialize@port port `E2498  1 a 1 wreg ]
+[v gpio_port_direction_initialize@direction direction `uc  1 p 1 0 ]
+[v gpio_port_direction_initialize@port port `E2498  1 a 1 4 ]
+"174
+} 0
