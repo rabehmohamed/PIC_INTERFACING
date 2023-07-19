@@ -207,7 +207,7 @@ std_ReturnType gpio_port_get_direction_status(port_index port ,direction_t *dire
 #if GPIO_PIN_CONFIG==CONFIG_ENABLE
 std_ReturnType gpio_port_write_logic(port_index port , uint8 logic){
     std_ReturnType ret = E_OK;
-    if((port > PORT_MAX-1) && (logic == NULL) ){
+    if((port > PORT_MAX-1)){
         ret = E_NOT_OK;
     }
     else {
@@ -245,7 +245,7 @@ std_ReturnType gpio_port_toggle_logic(port_index port){
         ret = E_NOT_OK;
     }
     else {
-        *lat_register[port] ^ = PORT_MASK;
+        *lat_register[port]^= PORT_MASK;
     }
     return ret;
 }

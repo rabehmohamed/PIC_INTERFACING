@@ -4507,7 +4507,7 @@ typedef uint8 std_ReturnType;
 
 # 1 "MCAL_Layer/GPIO/hal_gpio_config.h" 1
 # 15 "MCAL_Layer/GPIO/hal_gpio.h" 2
-# 33 "MCAL_Layer/GPIO/hal_gpio.h"
+# 34 "MCAL_Layer/GPIO/hal_gpio.h"
 typedef enum {
     GPIO_LOW = 0,
     GPIO_HIGH
@@ -4547,12 +4547,12 @@ typedef struct {
 
 
 
-std_ReturnType gpio_pin_initialize(const pin_config_t * pin_config);
 std_ReturnType gpio_pin_direction_initialize(const pin_config_t * pin_config);
 std_ReturnType gpio_pin_get_direction_status(const pin_config_t * pin_config , direction_t *direction_status);
 std_ReturnType gpio_pin_write_logic(const pin_config_t * pin_config , logic_t logic);
 std_ReturnType gpio_pin_read_logic(const pin_config_t * pin_config , logic_t *logic);
 std_ReturnType gpio_pin_toggle_logic(const pin_config_t * pin_config);
+std_ReturnType gpio_pin_initialize(const pin_config_t * pin_config);
 
 
 std_ReturnType gpio_port_direction_initialize(port_index port , uint8 direction);
@@ -4677,7 +4677,7 @@ std_ReturnType gpio_port_get_direction_status(port_index port ,direction_t *dire
 # 208 "MCAL_Layer/GPIO/hal_gpio.c"
 std_ReturnType gpio_port_write_logic(port_index port , uint8 logic){
     std_ReturnType ret = (std_ReturnType)0x01;
-    if((port > 8 -1) && (logic == ((void*)0)) ){
+    if((port > 8 -1)){
         ret = (std_ReturnType)0x00;
     }
     else {
@@ -4697,4 +4697,15 @@ std_ReturnType gpio_port_read_logic(port_index port , logic_t *logic){
     return ret;
 }
 
-std_ReturnType gpio_port_toggle_logic(port_index port);
+
+
+std_ReturnType gpio_port_toggle_logic(port_index port){
+    std_ReturnType ret = (std_ReturnType)0x01;
+    if((port > 8 -1)){
+        ret = (std_ReturnType)0x00;
+    }
+    else {
+        *lat_register[port]^= 0xFF;
+    }
+    return ret;
+}

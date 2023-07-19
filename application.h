@@ -13,9 +13,5 @@
 
 
 
-#ifdef	__cplusplus
-}
-#endif
-
 #endif	/* APPLICATION_H */
 

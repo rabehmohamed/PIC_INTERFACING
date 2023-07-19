@@ -249,7 +249,7 @@ uldiv_t uldiv (unsigned long, unsigned long);
 # 1 "./application.h" 1
 # 11 "./application.h"
 # 1 "./ECU_Layer/LED/ecu_led.h" 1
-# 11 "./ECU_Layer/LED/ecu_led.h"
+# 12 "./ECU_Layer/LED/ecu_led.h"
 # 1 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/hal_gpio.h" 1
 # 12 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/hal_gpio.h"
 # 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\\pic\\include\\proc\\../pic18.h" 1 3
@@ -4653,7 +4653,7 @@ typedef uint8 std_ReturnType;
 
 # 1 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/hal_gpio_config.h" 1
 # 15 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/hal_gpio.h" 2
-# 33 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/hal_gpio.h"
+# 34 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/hal_gpio.h"
 typedef enum {
     GPIO_LOW = 0,
     GPIO_HIGH
@@ -4693,12 +4693,12 @@ typedef struct {
 
 
 
-std_ReturnType gpio_pin_initialize(const pin_config_t * pin_config);
 std_ReturnType gpio_pin_direction_initialize(const pin_config_t * pin_config);
 std_ReturnType gpio_pin_get_direction_status(const pin_config_t * pin_config , direction_t *direction_status);
 std_ReturnType gpio_pin_write_logic(const pin_config_t * pin_config , logic_t logic);
 std_ReturnType gpio_pin_read_logic(const pin_config_t * pin_config , logic_t *logic);
 std_ReturnType gpio_pin_toggle_logic(const pin_config_t * pin_config);
+std_ReturnType gpio_pin_initialize(const pin_config_t * pin_config);
 
 
 std_ReturnType gpio_port_direction_initialize(port_index port , uint8 direction);
@@ -4706,60 +4706,65 @@ std_ReturnType gpio_port_get_direction_status(port_index port ,direction_t *dire
 std_ReturnType gpio_port_write_logic(port_index port , uint8 logic);
 std_ReturnType gpio_port_read_logic(port_index port , logic_t *logic);
 std_ReturnType gpio_port_t_logic(port_index port);
-# 11 "./ECU_Layer/LED/ecu_led.h" 2
+# 12 "./ECU_Layer/LED/ecu_led.h" 2
+
+# 1 "./ECU_Layer/LED/ecu_led_config.h" 1
+# 13 "./ECU_Layer/LED/ecu_led.h" 2
+
+
+
+
+
+
+typedef enum{
+    LED_OFF,
+    LED_ON
+}LED_STATUS;
+
+typedef struct{
+    uint8 port : 4;
+    uint8 pin : 3;
+    uint8 led_status;
+}led_t;
+
+std_ReturnType led_initialize(const led_t *led);
+std_ReturnType led_turn_on(const led_t *led);
+std_ReturnType led_turn_off(const led_t *led);
+std_ReturnType led_toggle(const led_t *led);
 # 11 "./application.h" 2
 # 12 "application.c" 2
 
 
-pin_config_t led_0 = {
+void application_initialize(void);
+led_t led1 ={
   .port = PORTC_INDEX,
   .pin = GPIO_PIN0,
-  .direction = GPIO_DIRECTION_OUTPUT,
-  .logic = GPIO_LOW
+  .led_status = LED_OFF
 };
 
-pin_config_t led_1 = {
+led_t led2 ={
   .port = PORTC_INDEX,
   .pin = GPIO_PIN1,
-  .direction = GPIO_DIRECTION_OUTPUT,
-  .logic = GPIO_LOW
+  .led_status = LED_OFF
 };
-
-pin_config_t led_2 = {
-  .port = PORTC_INDEX,
-  .pin = GPIO_PIN2,
-  .direction = GPIO_DIRECTION_OUTPUT,
-  .logic = GPIO_LOW
-};
-
-pin_config_t btn_1 = {
-  .port = PORTD_INDEX,
-  .pin = GPIO_PIN0,
-  .direction = GPIO_DIRECTION_INPUT,
-  .logic = GPIO_LOW
-};
-
-std_ReturnType ret = (std_ReturnType)0x00;
-direction_t led2_status ;
-logic_t btn1_status ;
-uint8 portc_direction_status ;
-uint8 portc_logic ;
 
 int main() {
 
-
-
-
-
-    ret = gpio_port_direction_initialize(PORTC_INDEX , 0x00);
-    ret = gpio_port_get_direction_status(PORTC_INDEX , &portc_direction_status);
-     ret = gpio_port_write_logic(PORTC_INDEX , 0x55);
-        ret = gpio_port_read_logic(PORTC_INDEX , &portc_logic);
-        _delay((unsigned long)((250)*(8000000/4000.0)));
-        ret = gpio_port_write_logic(PORTC_INDEX , 0xAA);
-        ret = gpio_port_read_logic(PORTC_INDEX , &portc_logic);
+    application_initialize();
     while(1){
-# 78 "application.c"
-             }
+        led_turn_on(&led1);
+        _delay((unsigned long)((500)*(8000000/4000.0)));
+        led_turn_off(&led1);
+        led_turn_on(&led2);
+        _delay((unsigned long)((500)*(8000000/4000.0)));
+        led_toggle(&led1);
+        led_toggle(&led2);
+    }
     return (0);
+}
+
+void application_initialize(void){
+    std_ReturnType ret = (std_ReturnType)0x00;
+    ret = led_initialize(&led1);
+    ret = led_initialize(&led2);
 }

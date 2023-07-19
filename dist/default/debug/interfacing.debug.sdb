@@ -3,6 +3,16 @@
 [d edition pro ]
 [d chip 18F4620 ]
 [d frameptr 4065 ]
+"27 G:\Embedded\Rabeh\interfacing\ECU_Layer/LED/ecu_lead.c
+[e E2484 . `uc
+GPIO_DIRECTION_OUTPUT 0
+GPIO_DIRECTION_INPUT 1
+]
+"56
+[e E2480 . `uc
+GPIO_LOW 0
+GPIO_HIGH 1
+]
 "37 G:\Embedded\Rabeh\interfacing\MCAL_Layer/GPIO/hal_gpio.c
 [e E2484 . `uc
 GPIO_DIRECTION_OUTPUT 0
@@ -21,7 +31,7 @@ PORTC_INDEX 2
 PORTD_INDEX 3
 PORTE_INDEX 4
 ]
-"14 G:\Embedded\Rabeh\interfacing\application.c
+"15 G:\Embedded\Rabeh\interfacing\application.c
 [e E2819 . `uc
 PORTA_INDEX 0
 PORTB_INDEX 1
@@ -39,16 +49,14 @@ GPIO_PIN5 5
 GPIO_PIN6 6
 GPIO_PIN7 7
 ]
-[e E2805 . `uc
-GPIO_DIRECTION_OUTPUT 0
-GPIO_DIRECTION_INPUT 1
+[e E2861 . `uc
+LED_OFF 0
+LED_ON 1
 ]
-[e E2801 . `uc
-GPIO_LOW 0
-GPIO_HIGH 1
-]
-"48
+"27
 [v _main main `(i  1 e 2 0 ]
+"42
+[v _application_initialize application_initialize `(v  1 e 1 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\fleq.c
 [v ___fleq __fleq `(b  1 e 0 0 ]
 "62 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\float.c
@@ -73,24 +81,27 @@ GPIO_HIGH 1
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
+"19 G:\Embedded\Rabeh\interfacing\ECU_Layer/LED/ecu_lead.c
+[v _led_initialize led_initialize `(uc  1 e 1 0 ]
+"44
+[v _led_turn_on led_turn_on `(uc  1 e 1 0 ]
+"68
+[v _led_turn_off led_turn_off `(uc  1 e 1 0 ]
+"92
+[v _led_toggle led_toggle `(uc  1 e 1 0 ]
 "22 G:\Embedded\Rabeh\interfacing\MCAL_Layer/GPIO/hal_gpio.c
 [v _gpio_pin_direction_initialize gpio_pin_direction_initialize `(uc  1 e 1 0 ]
 "74
 [v _gpio_pin_write_logic gpio_pin_write_logic `(uc  1 e 1 0 ]
-"165
-[v _gpio_port_direction_initialize gpio_port_direction_initialize `(uc  1 e 1 0 ]
-"186
-[v _gpio_port_get_direction_status gpio_port_get_direction_status `(uc  1 e 1 0 ]
-"208
-[v _gpio_port_write_logic gpio_port_write_logic `(uc  1 e 1 0 ]
-"229
-[v _gpio_port_read_logic gpio_port_read_logic `(uc  1 e 1 0 ]
-"42 G:\Embedded\Rabeh\interfacing\application.c
-[v _ret ret `uc  1 e 1 0 ]
-"45
-[v _portc_direction_status portc_direction_status `uc  1 e 1 0 ]
-"46
-[v _portc_logic portc_logic `uc  1 e 1 0 ]
+"144
+[v _gpio_pin_toggle_logic gpio_pin_toggle_logic `(uc  1 e 1 0 ]
+[s S24 . 2 `uc 1 port 1 0 :4:0 
+`uc 1 pin 1 0 :3:4 
+`uc 1 led_status 1 1 ]
+"15 G:\Embedded\Rabeh\interfacing\application.c
+[v _led1 led1 `S24  1 e 2 0 ]
+"21
+[v _led2 led2 `S24  1 e 2 0 ]
 "52 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4620.h
 [v _PORTA PORTA `VEuc  1 e 1 @3968 ]
 "189
@@ -127,56 +138,125 @@ GPIO_HIGH 1
 [v _lat_register lat_register `[5]*.39VEuc  1 e 10 0 ]
 "12
 [v _port_register port_register `[5]*.39VEuc  1 e 10 0 ]
-"48 G:\Embedded\Rabeh\interfacing\application.c
+"27 G:\Embedded\Rabeh\interfacing\application.c
 [v _main main `(i  1 e 2 0 ]
 {
-"80
+"40
 } 0
-"208 G:\Embedded\Rabeh\interfacing\MCAL_Layer/GPIO/hal_gpio.c
-[v _gpio_port_write_logic gpio_port_write_logic `(uc  1 e 1 0 ]
+"44 G:\Embedded\Rabeh\interfacing\ECU_Layer/LED/ecu_lead.c
+[v _led_turn_on led_turn_on `(uc  1 e 1 0 ]
 {
-[v gpio_port_write_logic@port port `E2498  1 a 1 wreg ]
-"209
-[v gpio_port_write_logic@ret ret `uc  1 a 1 3 ]
-"208
-[v gpio_port_write_logic@port port `E2498  1 a 1 wreg ]
-[v gpio_port_write_logic@logic logic `uc  1 p 1 0 ]
-[v gpio_port_write_logic@port port `E2498  1 a 1 4 ]
-"217
+[s S28 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+"51
+[v led_turn_on@led_pin led_pin `S28  1 a 1 12 ]
+[s S24 . 2 `uc 1 port 1 0 :4:0 
+`uc 1 pin 1 0 :3:4 
+`uc 1 led_status 1 1 ]
+"44
+[v led_turn_on@led led `*.39CS24  1 p 2 9 ]
+"50
+[v led_turn_on@F2565 F2565 `S28  1 s 1 F2565 ]
+"59
 } 0
-"229
-[v _gpio_port_read_logic gpio_port_read_logic `(uc  1 e 1 0 ]
+"68
+[v _led_turn_off led_turn_off `(uc  1 e 1 0 ]
 {
-[v gpio_port_read_logic@port port `E2498  1 a 1 wreg ]
-"230
-[v gpio_port_read_logic@ret ret `uc  1 a 1 4 ]
-"229
-[v gpio_port_read_logic@port port `E2498  1 a 1 wreg ]
-[v gpio_port_read_logic@logic logic `*.39E2480  1 p 2 0 ]
-[v gpio_port_read_logic@port port `E2498  1 a 1 5 ]
-"238
+[s S28 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+"75
+[v led_turn_off@led_pin led_pin `S28  1 a 1 12 ]
+[s S24 . 2 `uc 1 port 1 0 :4:0 
+`uc 1 pin 1 0 :3:4 
+`uc 1 led_status 1 1 ]
+"68
+[v led_turn_off@led led `*.39CS24  1 p 2 9 ]
+"74
+[v led_turn_off@F2570 F2570 `S28  1 s 1 F2570 ]
+"83
 } 0
-"186
-[v _gpio_port_get_direction_status gpio_port_get_direction_status `(uc  1 e 1 0 ]
+"74 G:\Embedded\Rabeh\interfacing\MCAL_Layer/GPIO/hal_gpio.c
+[v _gpio_pin_write_logic gpio_pin_write_logic `(uc  1 e 1 0 ]
 {
-[v gpio_port_get_direction_status@port port `E2498  1 a 1 wreg ]
-"187
-[v gpio_port_get_direction_status@ret ret `uc  1 a 1 4 ]
-"186
-[v gpio_port_get_direction_status@port port `E2498  1 a 1 wreg ]
-[v gpio_port_get_direction_status@direction_status direction_status `*.39E2484  1 p 2 0 ]
-[v gpio_port_get_direction_status@port port `E2498  1 a 1 5 ]
-"195
+[s S28 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+[v gpio_pin_write_logic@pin_config pin_config `*.39CS28  1 p 2 0 ]
+[v gpio_pin_write_logic@logic logic `E2480  1 p 1 2 ]
+"91
 } 0
-"165
-[v _gpio_port_direction_initialize gpio_port_direction_initialize `(uc  1 e 1 0 ]
+"92 G:\Embedded\Rabeh\interfacing\ECU_Layer/LED/ecu_lead.c
+[v _led_toggle led_toggle `(uc  1 e 1 0 ]
 {
-[v gpio_port_direction_initialize@port port `E2498  1 a 1 wreg ]
-"166
-[v gpio_port_direction_initialize@ret ret `uc  1 a 1 3 ]
-"165
-[v gpio_port_direction_initialize@port port `E2498  1 a 1 wreg ]
-[v gpio_port_direction_initialize@direction direction `uc  1 p 1 0 ]
-[v gpio_port_direction_initialize@port port `E2498  1 a 1 4 ]
-"174
+[s S28 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+"99
+[v led_toggle@led_pin led_pin `S28  1 a 1 10 ]
+[s S24 . 2 `uc 1 port 1 0 :4:0 
+`uc 1 pin 1 0 :3:4 
+`uc 1 led_status 1 1 ]
+"92
+[v led_toggle@led led `*.39CS24  1 p 2 7 ]
+"98
+[v led_toggle@F2575 F2575 `S28  1 s 1 F2575 ]
+"107
+} 0
+"144 G:\Embedded\Rabeh\interfacing\MCAL_Layer/GPIO/hal_gpio.c
+[v _gpio_pin_toggle_logic gpio_pin_toggle_logic `(uc  1 e 1 0 ]
+{
+[s S28 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+[v gpio_pin_toggle_logic@pin_config pin_config `*.39CS28  1 p 2 0 ]
+"153
+} 0
+"42 G:\Embedded\Rabeh\interfacing\application.c
+[v _application_initialize application_initialize `(v  1 e 1 0 ]
+{
+"46
+} 0
+"19 G:\Embedded\Rabeh\interfacing\ECU_Layer/LED/ecu_lead.c
+[v _led_initialize led_initialize `(uc  1 e 1 0 ]
+{
+[s S28 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+"27
+[v led_initialize@led_pin led_pin `S28  1 a 1 12 ]
+"20
+[v led_initialize@ret ret `uc  1 a 1 11 ]
+[s S24 . 2 `uc 1 port 1 0 :4:0 
+`uc 1 pin 1 0 :3:4 
+`uc 1 led_status 1 1 ]
+"19
+[v led_initialize@led led `*.39CS24  1 p 2 8 ]
+"26
+[v led_initialize@F2560 F2560 `S28  1 s 1 F2560 ]
+"35
+} 0
+"22 G:\Embedded\Rabeh\interfacing\MCAL_Layer/GPIO/hal_gpio.c
+[v _gpio_pin_direction_initialize gpio_pin_direction_initialize `(uc  1 e 1 0 ]
+{
+[s S28 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+[v gpio_pin_direction_initialize@pin_config pin_config `*.39CS28  1 p 2 0 ]
+"40
 } 0
