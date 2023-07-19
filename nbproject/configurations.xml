@@ -31,7 +31,7 @@
                    projectFiles="true">
       <logicalFolder name="ECU_Layer" displayName="ECU_Layer" projectFiles="true">
         <logicalFolder name="LED" displayName="LED" projectFiles="true">
-          <itemPath>ECU_Layer/LED/ecu_lead.c</itemPath>
+          <itemPath>ECU_Layer/LED/ecu_led.c</itemPath>
         </logicalFolder>
       </logicalFolder>
       <logicalFolder name="MCAL_Layer" displayName="MCAL_Layer" projectFiles="true">
