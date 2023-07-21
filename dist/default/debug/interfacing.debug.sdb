@@ -3,7 +3,21 @@
 [d edition pro ]
 [d chip 18F4620 ]
 [d frameptr 4065 ]
-"27 G:\Embedded\Rabeh\interfacing\ECU_Layer/LED/ecu_lead.c
+"19 G:\Embedded\Rabeh\interfacing\ECU_Layer/BUTTON/ecu_button.c
+[e E2540 . `uc
+BUTTON_PRESSED 0
+BUTTON_RELEASED 1
+]
+[e E2544 . `uc
+BUTTON_CONNECTION_HIGH 0
+BUTTON_CONNECTION_LOW 1
+]
+"40
+[e E2480 . `uc
+GPIO_LOW 0
+GPIO_HIGH 1
+]
+"27 G:\Embedded\Rabeh\interfacing\ECU_Layer/LED/ecu_led.c
 [e E2484 . `uc
 GPIO_DIRECTION_OUTPUT 0
 GPIO_DIRECTION_INPUT 1
@@ -31,7 +45,7 @@ PORTC_INDEX 2
 PORTD_INDEX 3
 PORTE_INDEX 4
 ]
-"15 G:\Embedded\Rabeh\interfacing\application.c
+"14 G:\Embedded\Rabeh\interfacing\application.c
 [e E2819 . `uc
 PORTA_INDEX 0
 PORTB_INDEX 1
@@ -49,14 +63,39 @@ GPIO_PIN5 5
 GPIO_PIN6 6
 GPIO_PIN7 7
 ]
-[e E2861 . `uc
+[e E2879 . `uc
 LED_OFF 0
 LED_ON 1
 ]
-"27
+"26
+[e E2861 . `uc
+BUTTON_PRESSED 0
+BUTTON_RELEASED 1
+]
+[e E2865 . `uc
+BUTTON_CONNECTION_HIGH 0
+BUTTON_CONNECTION_LOW 1
+]
+[e E2805 . `uc
+GPIO_DIRECTION_OUTPUT 0
+GPIO_DIRECTION_INPUT 1
+]
+[e E2801 . `uc
+GPIO_LOW 0
+GPIO_HIGH 1
+]
+"23 G:\Embedded\Rabeh\interfacing\ecu_relay.c
+[e E2484 . `uc
+GPIO_DIRECTION_OUTPUT 0
+GPIO_DIRECTION_INPUT 1
+]
+"36
+[e E2480 . `uc
+GPIO_LOW 0
+GPIO_HIGH 1
+]
+"44 G:\Embedded\Rabeh\interfacing\application.c
 [v _main main `(i  1 e 2 0 ]
-"42
-[v _application_initialize application_initialize `(v  1 e 1 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\fleq.c
 [v ___fleq __fleq `(b  1 e 0 0 ]
 "62 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\float.c
@@ -81,27 +120,30 @@ LED_ON 1
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
-"19 G:\Embedded\Rabeh\interfacing\ECU_Layer/LED/ecu_lead.c
-[v _led_initialize led_initialize `(uc  1 e 1 0 ]
-"44
-[v _led_turn_on led_turn_on `(uc  1 e 1 0 ]
-"68
-[v _led_turn_off led_turn_off `(uc  1 e 1 0 ]
-"92
-[v _led_toggle led_toggle `(uc  1 e 1 0 ]
+"15 G:\Embedded\Rabeh\interfacing\ecu_relay.c
+[v _relay_initialize relay_initialize `(uc  1 e 1 0 ]
+"29
+[v _relay_turn_on relay_turn_on `(uc  1 e 1 0 ]
+"41
+[v _relay_turn_off relay_turn_off `(uc  1 e 1 0 ]
 "22 G:\Embedded\Rabeh\interfacing\MCAL_Layer/GPIO/hal_gpio.c
 [v _gpio_pin_direction_initialize gpio_pin_direction_initialize `(uc  1 e 1 0 ]
 "74
 [v _gpio_pin_write_logic gpio_pin_write_logic `(uc  1 e 1 0 ]
+"102
+[v _gpio_pin_read_logic gpio_pin_read_logic `(uc  1 e 1 0 ]
+"122
+[v _gpio_pin_initialize gpio_pin_initialize `(uc  1 e 1 0 ]
 "144
 [v _gpio_pin_toggle_logic gpio_pin_toggle_logic `(uc  1 e 1 0 ]
-[s S24 . 2 `uc 1 port 1 0 :4:0 
-`uc 1 pin 1 0 :3:4 
-`uc 1 led_status 1 1 ]
-"15 G:\Embedded\Rabeh\interfacing\application.c
-[v _led1 led1 `S24  1 e 2 0 ]
-"21
-[v _led2 led2 `S24  1 e 2 0 ]
+[s S309 . 1 `uc 1 relay_port 1 0 :4:0 
+`uc 1 relay_pin 1 0 :3:4 
+`uc 1 relay_status 1 0 :1:7 
+]
+"35 G:\Embedded\Rabeh\interfacing\application.c
+[v _relay1 relay1 `S309  1 e 1 0 ]
+"41
+[v _ret ret `uc  1 e 1 0 ]
 "52 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4620.h
 [v _PORTA PORTA `VEuc  1 e 1 @3968 ]
 "189
@@ -138,125 +180,117 @@ LED_ON 1
 [v _lat_register lat_register `[5]*.39VEuc  1 e 10 0 ]
 "12
 [v _port_register port_register `[5]*.39VEuc  1 e 10 0 ]
-"27 G:\Embedded\Rabeh\interfacing\application.c
+"44 G:\Embedded\Rabeh\interfacing\application.c
 [v _main main `(i  1 e 2 0 ]
 {
-"40
+"56
 } 0
-"44 G:\Embedded\Rabeh\interfacing\ECU_Layer/LED/ecu_lead.c
-[v _led_turn_on led_turn_on `(uc  1 e 1 0 ]
+"29 G:\Embedded\Rabeh\interfacing\ecu_relay.c
+[v _relay_turn_on relay_turn_on `(uc  1 e 1 0 ]
 {
-[s S28 . 1 `uc 1 port 1 0 :3:0 
+[s S24 . 1 `uc 1 port 1 0 :3:0 
 `uc 1 pin 1 0 :3:3 
 `uc 1 direction 1 0 :1:6 
 `uc 1 logic 1 0 :1:7 
 ]
+"35
+[v relay_turn_on@pin_obj pin_obj `S24  1 a 1 14 ]
+"30
+[v relay_turn_on@ret ret `uc  1 a 1 13 ]
+[s S309 . 1 `uc 1 relay_port 1 0 :4:0 
+`uc 1 relay_pin 1 0 :3:4 
+`uc 1 relay_status 1 0 :1:7 
+]
+"29
+[v relay_turn_on@relay relay `*.39CS309  1 p 2 10 ]
+"34
+[v relay_turn_on@F2561 F2561 `S24  1 s 1 F2561 ]
+"39
+} 0
+"41
+[v _relay_turn_off relay_turn_off `(uc  1 e 1 0 ]
+{
+[s S24 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+"47
+[v relay_turn_off@pin_obj pin_obj `S24  1 a 1 14 ]
+"42
+[v relay_turn_off@ret ret `uc  1 a 1 13 ]
+[s S309 . 1 `uc 1 relay_port 1 0 :4:0 
+`uc 1 relay_pin 1 0 :3:4 
+`uc 1 relay_status 1 0 :1:7 
+]
+"41
+[v relay_turn_off@relay relay `*.39CS309  1 p 2 10 ]
+"46
+[v relay_turn_off@F2566 F2566 `S24  1 s 1 F2566 ]
 "51
-[v led_turn_on@led_pin led_pin `S28  1 a 1 12 ]
-[s S24 . 2 `uc 1 port 1 0 :4:0 
-`uc 1 pin 1 0 :3:4 
-`uc 1 led_status 1 1 ]
-"44
-[v led_turn_on@led led `*.39CS24  1 p 2 9 ]
-"50
-[v led_turn_on@F2565 F2565 `S28  1 s 1 F2565 ]
-"59
 } 0
-"68
-[v _led_turn_off led_turn_off `(uc  1 e 1 0 ]
+"15
+[v _relay_initialize relay_initialize `(uc  1 e 1 0 ]
 {
-[s S28 . 1 `uc 1 port 1 0 :3:0 
+[s S24 . 1 `uc 1 port 1 0 :3:0 
 `uc 1 pin 1 0 :3:3 
 `uc 1 direction 1 0 :1:6 
 `uc 1 logic 1 0 :1:7 
 ]
-"75
-[v led_turn_off@led_pin led_pin `S28  1 a 1 12 ]
-[s S24 . 2 `uc 1 port 1 0 :4:0 
-`uc 1 pin 1 0 :3:4 
-`uc 1 led_status 1 1 ]
-"68
-[v led_turn_off@led led `*.39CS24  1 p 2 9 ]
-"74
-[v led_turn_off@F2570 F2570 `S28  1 s 1 F2570 ]
-"83
+"23
+[v relay_initialize@pin_obj pin_obj `S24  1 a 1 18 ]
+"16
+[v relay_initialize@ret ret `uc  1 a 1 17 ]
+[s S309 . 1 `uc 1 relay_port 1 0 :4:0 
+`uc 1 relay_pin 1 0 :3:4 
+`uc 1 relay_status 1 0 :1:7 
+]
+"15
+[v relay_initialize@relay relay `*.39CS309  1 p 2 14 ]
+"22
+[v relay_initialize@F2556 F2556 `S24  1 s 1 F2556 ]
+"27
 } 0
-"74 G:\Embedded\Rabeh\interfacing\MCAL_Layer/GPIO/hal_gpio.c
+"122 G:\Embedded\Rabeh\interfacing\MCAL_Layer/GPIO/hal_gpio.c
+[v _gpio_pin_initialize gpio_pin_initialize `(uc  1 e 1 0 ]
+{
+"123
+[v gpio_pin_initialize@ret ret `uc  1 a 1 13 ]
+[s S24 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+"122
+[v gpio_pin_initialize@pin_config pin_config `*.39CS24  1 p 2 10 ]
+"133
+} 0
+"74
 [v _gpio_pin_write_logic gpio_pin_write_logic `(uc  1 e 1 0 ]
 {
-[s S28 . 1 `uc 1 port 1 0 :3:0 
+"75
+[v gpio_pin_write_logic@ret ret `uc  1 a 1 9 ]
+[s S24 . 1 `uc 1 port 1 0 :3:0 
 `uc 1 pin 1 0 :3:3 
 `uc 1 direction 1 0 :1:6 
 `uc 1 logic 1 0 :1:7 
 ]
-[v gpio_pin_write_logic@pin_config pin_config `*.39CS28  1 p 2 0 ]
+"74
+[v gpio_pin_write_logic@pin_config pin_config `*.39CS24  1 p 2 0 ]
 [v gpio_pin_write_logic@logic logic `E2480  1 p 1 2 ]
 "91
 } 0
-"92 G:\Embedded\Rabeh\interfacing\ECU_Layer/LED/ecu_lead.c
-[v _led_toggle led_toggle `(uc  1 e 1 0 ]
-{
-[s S28 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-"99
-[v led_toggle@led_pin led_pin `S28  1 a 1 10 ]
-[s S24 . 2 `uc 1 port 1 0 :4:0 
-`uc 1 pin 1 0 :3:4 
-`uc 1 led_status 1 1 ]
-"92
-[v led_toggle@led led `*.39CS24  1 p 2 7 ]
-"98
-[v led_toggle@F2575 F2575 `S28  1 s 1 F2575 ]
-"107
-} 0
-"144 G:\Embedded\Rabeh\interfacing\MCAL_Layer/GPIO/hal_gpio.c
-[v _gpio_pin_toggle_logic gpio_pin_toggle_logic `(uc  1 e 1 0 ]
-{
-[s S28 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-[v gpio_pin_toggle_logic@pin_config pin_config `*.39CS28  1 p 2 0 ]
-"153
-} 0
-"42 G:\Embedded\Rabeh\interfacing\application.c
-[v _application_initialize application_initialize `(v  1 e 1 0 ]
-{
-"46
-} 0
-"19 G:\Embedded\Rabeh\interfacing\ECU_Layer/LED/ecu_lead.c
-[v _led_initialize led_initialize `(uc  1 e 1 0 ]
-{
-[s S28 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-"27
-[v led_initialize@led_pin led_pin `S28  1 a 1 12 ]
-"20
-[v led_initialize@ret ret `uc  1 a 1 11 ]
-[s S24 . 2 `uc 1 port 1 0 :4:0 
-`uc 1 pin 1 0 :3:4 
-`uc 1 led_status 1 1 ]
-"19
-[v led_initialize@led led `*.39CS24  1 p 2 8 ]
-"26
-[v led_initialize@F2560 F2560 `S28  1 s 1 F2560 ]
-"35
-} 0
-"22 G:\Embedded\Rabeh\interfacing\MCAL_Layer/GPIO/hal_gpio.c
+"22
 [v _gpio_pin_direction_initialize gpio_pin_direction_initialize `(uc  1 e 1 0 ]
 {
-[s S28 . 1 `uc 1 port 1 0 :3:0 
+"23
+[v gpio_pin_direction_initialize@ret ret `uc  1 a 1 8 ]
+[s S24 . 1 `uc 1 port 1 0 :3:0 
 `uc 1 pin 1 0 :3:3 
 `uc 1 direction 1 0 :1:6 
 `uc 1 logic 1 0 :1:7 
 ]
-[v gpio_pin_direction_initialize@pin_config pin_config `*.39CS28  1 p 2 0 ]
+"22
+[v gpio_pin_direction_initialize@pin_config pin_config `*.39CS24  1 p 2 0 ]
 "40
 } 0

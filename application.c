@@ -11,7 +11,6 @@
 
 #include "application.h"
 
-void application_initialize(void);
 led_t led1 ={
   .port = PORTC_INDEX,
   .pin = GPIO_PIN0,
@@ -24,23 +23,34 @@ led_t led2 ={
   .led_status = LED_OFF
 };
 
+button_t btn1 = {
+    .button_pin.port = PORTC_INDEX,
+    .button_pin.pin = GPIO_PIN2,
+    .button_pin.direction = GPIO_DIRECTION_INPUT,
+    .button_pin.logic = GPIO_LOW,
+    .button_connection = BUTTON_CONNECTION_HIGH,
+    .button_state = BUTTON_RELEASED
+};
+
+relay_t relay1 ={
+    .relay_port = PORTC_INDEX,
+    .relay_pin = GPIO_PIN0,
+    .relay_status = RELAY_OFF_STATUS
+};
+
+std_ReturnType ret = E_NOT_OK;
+
+
 int main() {
     
-    application_initialize();
+
+    ret = relay_initialize(&relay1);
+
     while(1){
-        led_turn_on(&led1);
-        __delay_ms(500);
-        led_turn_off(&led1);
-        led_turn_on(&led2);
-        __delay_ms(500);
-        led_toggle(&led1);
-        led_toggle(&led2);
+        ret = relay_turn_on(&relay1);
+        __delay_ms(5000);
+        ret = relay_turn_off(&relay1);
+        __delay_ms(5000);
     }
     return (EXIT_SUCCESS);
-}
-
-void application_initialize(void){
-    std_ReturnType ret = E_NOT_OK;
-    ret = led_initialize(&led1);
-    ret = led_initialize(&led2);
 }

@@ -1,6 +1,6 @@
 /* 
  * File:   application.h
- * Author: LENOVO
+ * Author: Rabeh Mohamed
  *
  * Created on July 16, 2023, 8:48 PM
  */
@@ -8,8 +8,12 @@
 #ifndef APPLICATION_H
 #define	APPLICATION_H
 
+#include "ECU_Layer/BUTTON/ecu_button.h"
 #include "ECU_Layer/LED/ecu_led.h"
+#include "ECU_Layer/Relay/ecu_relay.h"
 
+
+#define _XTAL_FREQ 8000000UL
 
 
 

@@ -1,6 +1,5 @@
-build/default/debug/application.p1:  \
-application.c  \
-application.h  \
+build/default/debug/ECU_Layer/BUTTON/ecu_button.p1:  \
+ECU_Layer/BUTTON/ecu_button.c  \
 ECU_Layer/BUTTON/ecu_button.h  \
 ECU_Layer/BUTTON/../../MCAL_Layer/GPIO/hal_gpio.h  \
 ECU_Layer/BUTTON/../../MCAL_Layer/GPIO/../mcal_std_types.h  \
@@ -8,8 +7,4 @@ ECU_Layer/BUTTON/../../MCAL_Layer/GPIO/../std_libraries.h  \
 ECU_Layer/BUTTON/../../MCAL_Layer/GPIO/../compiler.h  \
 ECU_Layer/BUTTON/../../MCAL_Layer/GPIO/../device_config.h  \
 ECU_Layer/BUTTON/../../MCAL_Layer/GPIO/hal_gpio_config.h  \
-ECU_Layer/BUTTON/ecu_button_config.h  \
-ECU_Layer/LED/ecu_led.h  \
-ECU_Layer/LED/ecu_led_config.h  \
-ECU_Layer/Relay/ecu_relay.h  \
-ECU_Layer/Relay/ecu_relay_config.h 
+ECU_Layer/BUTTON/ecu_button_config.h 
