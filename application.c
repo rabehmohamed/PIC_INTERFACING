@@ -11,46 +11,57 @@
 
 #include "application.h"
 
-led_t led1 ={
-  .port = PORTC_INDEX,
-  .pin = GPIO_PIN0,
-  .led_status = LED_OFF
+
+
+dc_motor_t dc_motor_1 = {
+  .dc_motor[0].port = PORTC_INDEX,
+  .dc_motor[0].pin = GPIO_PIN0,
+  .dc_motor[0].logic = DC_MOTOR_OFF_STATUS,
+  .dc_motor[0].direction = GPIO_DIRECTION_OUTPUT,
+  
+  .dc_motor[1].port = PORTC_INDEX,
+  .dc_motor[1].pin = GPIO_PIN1,
+  .dc_motor[1].logic = DC_MOTOR_OFF_STATUS,
+  .dc_motor[1].direction = GPIO_DIRECTION_OUTPUT,
 };
 
-led_t led2 ={
-  .port = PORTC_INDEX,
-  .pin = GPIO_PIN1,
-  .led_status = LED_OFF
-};
-
-button_t btn1 = {
-    .button_pin.port = PORTC_INDEX,
-    .button_pin.pin = GPIO_PIN2,
-    .button_pin.direction = GPIO_DIRECTION_INPUT,
-    .button_pin.logic = GPIO_LOW,
-    .button_connection = BUTTON_CONNECTION_HIGH,
-    .button_state = BUTTON_RELEASED
-};
-
-relay_t relay1 ={
-    .relay_port = PORTC_INDEX,
-    .relay_pin = GPIO_PIN0,
-    .relay_status = RELAY_OFF_STATUS
+dc_motor_t dc_motor_2 = {
+  .dc_motor[0].port = PORTC_INDEX,
+  .dc_motor[0].pin = GPIO_PIN2,
+  .dc_motor[0].logic = DC_MOTOR_OFF_STATUS,
+  .dc_motor[0].direction = GPIO_DIRECTION_OUTPUT,
+  
+  .dc_motor[1].port = PORTC_INDEX,
+  .dc_motor[1].pin = GPIO_PIN3,
+  .dc_motor[1].logic = DC_MOTOR_OFF_STATUS,
+  .dc_motor[1].direction = GPIO_DIRECTION_OUTPUT,
 };
 
 std_ReturnType ret = E_NOT_OK;
 
-
+void application_initialize(void);
 int main() {
     
-
-    ret = relay_initialize(&relay1);
-
+    application_initialize();
+    
+    
     while(1){
-        ret = relay_turn_on(&relay1);
-        __delay_ms(5000);
-        ret = relay_turn_off(&relay1);
-        __delay_ms(5000);
+        ret = dc_motor_move_right(&dc_motor_1);
+        ret = dc_motor_move_right(&dc_motor_2);
+        __delay_ms(3000);
+        ret = dc_motor_move_left(&dc_motor_1);
+        ret = dc_motor_move_left(&dc_motor_2);
+        __delay_ms(3000);
+        ret = dc_motor_stop(&dc_motor_1);
+        ret = dc_motor_stop(&dc_motor_2);
+        __delay_ms(3000);
+        ret = dc_motor_move_right(&dc_motor_1);
+        ret = dc_motor_move_left(&dc_motor_2);
+        
     }
     return (EXIT_SUCCESS);
+}
+void application_initialize(void){
+    ret = dc_motor_initialize(&dc_motor_1);
+    ret = dc_motor_initialize(&dc_motor_2);
 }

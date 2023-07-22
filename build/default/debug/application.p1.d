@@ -12,4 +12,6 @@ ECU_Layer/BUTTON/ecu_button_config.h  \
 ECU_Layer/LED/ecu_led.h  \
 ECU_Layer/LED/ecu_led_config.h  \
 ECU_Layer/Relay/ecu_relay.h  \
-ECU_Layer/Relay/ecu_relay_config.h 
+ECU_Layer/Relay/ecu_relay_config.h  \
+ECU_Layer/DC_Motor/ecu_dc_motor.h  \
+ECU_Layer/DC_Motor/ecu_dc_motor_config.h 

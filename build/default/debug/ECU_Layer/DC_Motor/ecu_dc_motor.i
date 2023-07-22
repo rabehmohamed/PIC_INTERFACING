@@ -1,4 +1,4 @@
-# 1 "application.c"
+# 1 "ECU_Layer/DC_Motor/ecu_dc_motor.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "application.c" 2
+# 1 "ECU_Layer/DC_Motor/ecu_dc_motor.c" 2
 
 
 
@@ -14,177 +14,57 @@
 
 
 
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c99\\stdio.h" 1 3
+# 1 "ECU_Layer/DC_Motor/ecu_dc_motor.h" 1
+# 12 "ECU_Layer/DC_Motor/ecu_dc_motor.h"
+# 1 "ECU_Layer/DC_Motor/ecu_dc_motor_config.h" 1
+# 12 "ECU_Layer/DC_Motor/ecu_dc_motor.h" 2
+
+# 1 "ECU_Layer/DC_Motor/../../MCAL_Layer/GPIO/hal_gpio.h" 1
+# 12 "ECU_Layer/DC_Motor/../../MCAL_Layer/GPIO/hal_gpio.h"
+# 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\\pic\\include\\proc\\../pic18.h" 1 3
+
+
+
+
+# 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\\pic\\include\\htc.h" 1 3
+
+
+
+# 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\\pic\\include\\xc.h" 1 3
+# 18 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\\pic\\include\\xc.h" 3
+extern const char __xc8_OPTIM_SPEED;
+
+extern double __fpnormalize(double);
+
+
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c99\\xc8debug.h" 1 3
+
+
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c99\\stdlib.h" 1 3
 
 
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c99\\musl_xc8.h" 1 3
-# 5 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c99\\stdio.h" 2 3
+# 5 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c99\\stdlib.h" 2 3
 
 
 
 
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c99\\features.h" 1 3
-# 11 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c99\\stdio.h" 2 3
-# 24 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c99\\stdio.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c99\\bits/alltypes.h" 1 3
-
-
-
-
-
-typedef void * va_list[1];
-
-
-
-
-typedef void * __isoc_va_list[1];
-# 122 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef unsigned size_t;
-# 137 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef long ssize_t;
-# 168 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef __int24 int24_t;
-# 204 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef __uint24 uint24_t;
-# 246 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef long long off_t;
-# 399 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef struct _IO_FILE FILE;
-# 25 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c99\\stdio.h" 2 3
-# 52 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c99\\stdio.h" 3
-typedef union _G_fpos64_t {
- char __opaque[16];
- double __align;
-} fpos_t;
-
-extern FILE *const stdin;
-extern FILE *const stdout;
-extern FILE *const stderr;
-
-
-
-
-
-FILE *fopen(const char *restrict, const char *restrict);
-FILE *freopen(const char *restrict, const char *restrict, FILE *restrict);
-int fclose(FILE *);
-
-int remove(const char *);
-int rename(const char *, const char *);
-
-int feof(FILE *);
-int ferror(FILE *);
-int fflush(FILE *);
-void clearerr(FILE *);
-
-int fseek(FILE *, long, int);
-long ftell(FILE *);
-void rewind(FILE *);
-
-int fgetpos(FILE *restrict, fpos_t *restrict);
-int fsetpos(FILE *, const fpos_t *);
-
-size_t fread(void *restrict, size_t, size_t, FILE *restrict);
-size_t fwrite(const void *restrict, size_t, size_t, FILE *restrict);
-
-int fgetc(FILE *);
-int getc(FILE *);
-int getchar(void);
-int ungetc(int, FILE *);
-int getch(void);
-
-int fputc(int, FILE *);
-int putc(int, FILE *);
-int putchar(int);
-void putch(char);
-
-char *fgets(char *restrict, int, FILE *restrict);
-
-char *gets(char *);
-
-
-int fputs(const char *restrict, FILE *restrict);
-int puts(const char *);
-
-__attribute__((__format__(__printf__, 1, 2)))
-int printf(const char *restrict, ...);
-__attribute__((__format__(__printf__, 2, 3)))
-int fprintf(FILE *restrict, const char *restrict, ...);
-__attribute__((__format__(__printf__, 2, 3)))
-int sprintf(char *restrict, const char *restrict, ...);
-__attribute__((__format__(__printf__, 3, 4)))
-int snprintf(char *restrict, size_t, const char *restrict, ...);
-
-__attribute__((__format__(__printf__, 1, 0)))
-int vprintf(const char *restrict, __isoc_va_list);
-int vfprintf(FILE *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__printf__, 2, 0)))
-int vsprintf(char *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__printf__, 3, 0)))
-int vsnprintf(char *restrict, size_t, const char *restrict, __isoc_va_list);
-
-__attribute__((__format__(__scanf__, 1, 2)))
-int scanf(const char *restrict, ...);
-__attribute__((__format__(__scanf__, 2, 3)))
-int fscanf(FILE *restrict, const char *restrict, ...);
-__attribute__((__format__(__scanf__, 2, 3)))
-int sscanf(const char *restrict, const char *restrict, ...);
-
-__attribute__((__format__(__scanf__, 1, 0)))
-int vscanf(const char *restrict, __isoc_va_list);
-int vfscanf(FILE *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__scanf__, 2, 0)))
-int vsscanf(const char *restrict, const char *restrict, __isoc_va_list);
-
-void perror(const char *);
-
-int setvbuf(FILE *restrict, char *restrict, int, size_t);
-void setbuf(FILE *restrict, char *restrict);
-
-char *tmpnam(char *);
-FILE *tmpfile(void);
-
-
-
-
-FILE *fmemopen(void *restrict, size_t, const char *restrict);
-FILE *open_memstream(char **, size_t *);
-FILE *fdopen(int, const char *);
-FILE *popen(const char *, const char *);
-int pclose(FILE *);
-int fileno(FILE *);
-int fseeko(FILE *, off_t, int);
-off_t ftello(FILE *);
-int dprintf(int, const char *restrict, ...);
-int vdprintf(int, const char *restrict, __isoc_va_list);
-void flockfile(FILE *);
-int ftrylockfile(FILE *);
-void funlockfile(FILE *);
-int getc_unlocked(FILE *);
-int getchar_unlocked(void);
-int putc_unlocked(int, FILE *);
-int putchar_unlocked(int);
-ssize_t getdelim(char **restrict, size_t *restrict, int, FILE *restrict);
-ssize_t getline(char **restrict, size_t *restrict, FILE *restrict);
-int renameat(int, const char *, int, const char *);
-char *ctermid(char *);
-
-
-
-
-
-
-
-char *tempnam(const char *, const char *);
-# 8 "application.c" 2
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c99\\stdlib.h" 1 3
+# 11 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c99\\stdlib.h" 2 3
 # 21 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c99\\stdlib.h" 3
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c99\\bits/alltypes.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef long int wchar_t;
+# 122 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef unsigned size_t;
+# 168 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef __int24 int24_t;
+# 204 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef __uint24 uint24_t;
 # 22 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c99\\stdlib.h" 2 3
 
 int atoi (const char *);
@@ -242,35 +122,14 @@ typedef struct { unsigned int quot, rem; } udiv_t;
 typedef struct { unsigned long quot, rem; } uldiv_t;
 udiv_t udiv (unsigned int, unsigned int);
 uldiv_t uldiv (unsigned long, unsigned long);
-# 9 "application.c" 2
-
-
-
-# 1 "./application.h" 1
-# 11 "./application.h"
-# 1 "./ECU_Layer/BUTTON/ecu_button.h" 1
-# 12 "./ECU_Layer/BUTTON/ecu_button.h"
-# 1 "./ECU_Layer/BUTTON/../../MCAL_Layer/GPIO/hal_gpio.h" 1
-# 12 "./ECU_Layer/BUTTON/../../MCAL_Layer/GPIO/hal_gpio.h"
-# 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\\pic\\include\\proc\\../pic18.h" 1 3
+# 5 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c99\\xc8debug.h" 2 3
 
 
 
 
-# 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\\pic\\include\\htc.h" 1 3
 
 
 
-# 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\\pic\\include\\xc.h" 1 3
-# 18 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\\pic\\include\\xc.h" 3
-extern const char __xc8_OPTIM_SPEED;
-
-extern double __fpnormalize(double);
-
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c99\\xc8debug.h" 1 3
-# 12 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c99\\xc8debug.h" 3
 #pragma intrinsic(__builtin_software_breakpoint)
 extern void __builtin_software_breakpoint(void);
 # 24 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\\pic\\include\\xc.h" 2 3
@@ -4626,15 +4485,15 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 # 192 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\\pic\\include\\pic18.h" 3
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
-# 12 "./ECU_Layer/BUTTON/../../MCAL_Layer/GPIO/hal_gpio.h" 2
+# 12 "ECU_Layer/DC_Motor/../../MCAL_Layer/GPIO/hal_gpio.h" 2
 
-# 1 "./ECU_Layer/BUTTON/../../MCAL_Layer/GPIO/../mcal_std_types.h" 1
-# 12 "./ECU_Layer/BUTTON/../../MCAL_Layer/GPIO/../mcal_std_types.h"
-# 1 "./ECU_Layer/BUTTON/../../MCAL_Layer/GPIO/../std_libraries.h" 1
-# 12 "./ECU_Layer/BUTTON/../../MCAL_Layer/GPIO/../mcal_std_types.h" 2
+# 1 "ECU_Layer/DC_Motor/../../MCAL_Layer/GPIO/../mcal_std_types.h" 1
+# 12 "ECU_Layer/DC_Motor/../../MCAL_Layer/GPIO/../mcal_std_types.h"
+# 1 "ECU_Layer/DC_Motor/../../MCAL_Layer/GPIO/../std_libraries.h" 1
+# 12 "ECU_Layer/DC_Motor/../../MCAL_Layer/GPIO/../mcal_std_types.h" 2
 
-# 1 "./ECU_Layer/BUTTON/../../MCAL_Layer/GPIO/../compiler.h" 1
-# 13 "./ECU_Layer/BUTTON/../../MCAL_Layer/GPIO/../mcal_std_types.h" 2
+# 1 "ECU_Layer/DC_Motor/../../MCAL_Layer/GPIO/../compiler.h" 1
+# 13 "ECU_Layer/DC_Motor/../../MCAL_Layer/GPIO/../mcal_std_types.h" 2
 
 
 
@@ -4646,14 +4505,14 @@ typedef signed short sint16;
 typedef signed int sint32;
 
 typedef uint8 std_ReturnType;
-# 13 "./ECU_Layer/BUTTON/../../MCAL_Layer/GPIO/hal_gpio.h" 2
+# 13 "ECU_Layer/DC_Motor/../../MCAL_Layer/GPIO/hal_gpio.h" 2
 
-# 1 "./ECU_Layer/BUTTON/../../MCAL_Layer/GPIO/../device_config.h" 1
-# 14 "./ECU_Layer/BUTTON/../../MCAL_Layer/GPIO/hal_gpio.h" 2
+# 1 "ECU_Layer/DC_Motor/../../MCAL_Layer/GPIO/../device_config.h" 1
+# 14 "ECU_Layer/DC_Motor/../../MCAL_Layer/GPIO/hal_gpio.h" 2
 
-# 1 "./ECU_Layer/BUTTON/../../MCAL_Layer/GPIO/hal_gpio_config.h" 1
-# 15 "./ECU_Layer/BUTTON/../../MCAL_Layer/GPIO/hal_gpio.h" 2
-# 34 "./ECU_Layer/BUTTON/../../MCAL_Layer/GPIO/hal_gpio.h"
+# 1 "ECU_Layer/DC_Motor/../../MCAL_Layer/GPIO/hal_gpio_config.h" 1
+# 15 "ECU_Layer/DC_Motor/../../MCAL_Layer/GPIO/hal_gpio.h" 2
+# 34 "ECU_Layer/DC_Motor/../../MCAL_Layer/GPIO/hal_gpio.h"
 typedef enum {
     GPIO_LOW = 0,
     GPIO_HIGH
@@ -4706,96 +4565,7 @@ std_ReturnType gpio_port_get_direction_status(port_index port ,direction_t *dire
 std_ReturnType gpio_port_write_logic(port_index port , uint8 logic);
 std_ReturnType gpio_port_read_logic(port_index port , logic_t *logic);
 std_ReturnType gpio_port_toggle_logic(port_index port);
-# 12 "./ECU_Layer/BUTTON/ecu_button.h" 2
-
-
-# 1 "./ECU_Layer/BUTTON/ecu_button_config.h" 1
-# 14 "./ECU_Layer/BUTTON/ecu_button.h" 2
-
-
-
-
-
-
-
-
-typedef enum{
-    BUTTON_PRESSED = 0,
-    BUTTON_RELEASED
-}button_state_t;
-
-typedef enum{
-    BUTTON_CONNECTION_HIGH ,
-    BUTTON_CONNECTION_LOW
-}button_connection_t;
-
-typedef struct {
-    pin_config_t button_pin;
-    button_state_t button_state;
-    button_connection_t button_connection;
-}button_t;
-
-
-std_ReturnType button_initialize(const button_t * btn );
-std_ReturnType button_read_state(const button_t * btn , button_state_t * btn_state );
-# 11 "./application.h" 2
-
-# 1 "./ECU_Layer/LED/ecu_led.h" 1
-# 13 "./ECU_Layer/LED/ecu_led.h"
-# 1 "./ECU_Layer/LED/ecu_led_config.h" 1
-# 13 "./ECU_Layer/LED/ecu_led.h" 2
-
-
-
-
-
-
-typedef enum{
-    LED_OFF,
-    LED_ON
-}LED_STATUS;
-
-typedef struct{
-    uint8 port : 4;
-    uint8 pin : 3;
-    uint8 led_status;
-}led_t;
-
-std_ReturnType led_initialize(const led_t *led);
-std_ReturnType led_turn_on(const led_t *led);
-std_ReturnType led_turn_off(const led_t *led);
-std_ReturnType led_toggle(const led_t *led);
-# 12 "./application.h" 2
-
-# 1 "./ECU_Layer/Relay/ecu_relay.h" 1
-# 12 "./ECU_Layer/Relay/ecu_relay.h"
-# 1 "./ECU_Layer/Relay/ecu_relay_config.h" 1
-# 12 "./ECU_Layer/Relay/ecu_relay.h" 2
-
-
-
-
-
-
-
-
-typedef struct {
-    uint8 relay_port : 4;
-    uint8 relay_pin :3;
-    uint8 relay_status : 1;
-}relay_t;
-
-std_ReturnType relay_initialize(const relay_t *relay);
-std_ReturnType relay_turn_on(const relay_t *relay);
-std_ReturnType relay_turn_off(const relay_t *relay);
-std_ReturnType relay_toggle(const relay_t *relay);
-# 13 "./application.h" 2
-
-# 1 "./ECU_Layer/DC_Motor/ecu_dc_motor.h" 1
-# 12 "./ECU_Layer/DC_Motor/ecu_dc_motor.h"
-# 1 "./ECU_Layer/DC_Motor/ecu_dc_motor_config.h" 1
-# 12 "./ECU_Layer/DC_Motor/ecu_dc_motor.h" 2
-
+# 13 "ECU_Layer/DC_Motor/ecu_dc_motor.h" 2
 
 
 
@@ -4811,61 +4581,75 @@ std_ReturnType dc_motor_initialize(const dc_motor_t * motor);
 std_ReturnType dc_motor_move_right(const dc_motor_t * motor);
 std_ReturnType dc_motor_move_left(const dc_motor_t * motor);
 std_ReturnType dc_motor_stop(const dc_motor_t * motor);
-# 14 "./application.h" 2
-# 12 "application.c" 2
+# 8 "ECU_Layer/DC_Motor/ecu_dc_motor.c" 2
 
 
 
 
-dc_motor_t dc_motor_1 = {
-  .dc_motor[0].port = PORTC_INDEX,
-  .dc_motor[0].pin = GPIO_PIN0,
-  .dc_motor[0].logic = 0x00U,
-  .dc_motor[0].direction = GPIO_DIRECTION_OUTPUT,
-
-  .dc_motor[1].port = PORTC_INDEX,
-  .dc_motor[1].pin = GPIO_PIN1,
-  .dc_motor[1].logic = 0x00U,
-  .dc_motor[1].direction = GPIO_DIRECTION_OUTPUT,
-};
-
-dc_motor_t dc_motor_2 = {
-  .dc_motor[0].port = PORTC_INDEX,
-  .dc_motor[0].pin = GPIO_PIN2,
-  .dc_motor[0].logic = 0x00U,
-  .dc_motor[0].direction = GPIO_DIRECTION_OUTPUT,
-
-  .dc_motor[1].port = PORTC_INDEX,
-  .dc_motor[1].pin = GPIO_PIN3,
-  .dc_motor[1].logic = 0x00U,
-  .dc_motor[1].direction = GPIO_DIRECTION_OUTPUT,
-};
-
-std_ReturnType ret = (std_ReturnType)0x00;
-
-void application_initialize(void);
-int main() {
-
-    application_initialize();
 
 
-    while(1){
-        ret = dc_motor_move_right(&dc_motor_1);
-        ret = dc_motor_move_right(&dc_motor_2);
-        _delay((unsigned long)((3000)*(8000000UL/4000.0)));
-        ret = dc_motor_move_left(&dc_motor_1);
-        ret = dc_motor_move_left(&dc_motor_2);
-        _delay((unsigned long)((3000)*(8000000UL/4000.0)));
-        ret = dc_motor_stop(&dc_motor_1);
-        ret = dc_motor_stop(&dc_motor_2);
-        _delay((unsigned long)((3000)*(8000000UL/4000.0)));
-        ret = dc_motor_move_right(&dc_motor_1);
-        ret = dc_motor_move_left(&dc_motor_2);
 
+
+std_ReturnType dc_motor_initialize(const dc_motor_t * motor){
+    std_ReturnType ret = (std_ReturnType)0x01;
+    if(motor == ((void*)0)){
+        ret = (std_ReturnType)0x00;
     }
-    return (0);
+    else{
+        gpio_pin_initialize(&(motor->dc_motor[0]));
+        gpio_pin_initialize(&(motor->dc_motor[1]));
+        ret = (std_ReturnType)0x01;
+    }
+    return ret;
+};
+
+
+
+
+
+std_ReturnType dc_motor_move_right(const dc_motor_t * motor){
+    std_ReturnType ret = (std_ReturnType)0x01;
+    if(motor == ((void*)0)){
+        ret = (std_ReturnType)0x00;
+    }
+    else {
+         gpio_pin_write_logic(&(motor->dc_motor[0]) , GPIO_HIGH);
+         gpio_pin_write_logic(&(motor->dc_motor[1]) , GPIO_LOW);
+         ret = (std_ReturnType)0x01;
+    }
+    return ret;
 }
-void application_initialize(void){
-    ret = dc_motor_initialize(&dc_motor_1);
-    ret = dc_motor_initialize(&dc_motor_2);
+
+
+
+
+
+std_ReturnType dc_motor_move_left(const dc_motor_t * motor){
+     std_ReturnType ret = (std_ReturnType)0x01;
+    if(motor == ((void*)0)){
+        ret = (std_ReturnType)0x00;
+    }
+    else {
+        gpio_pin_write_logic(&(motor->dc_motor[0]) , GPIO_LOW);
+        gpio_pin_write_logic(&(motor->dc_motor[1]) , GPIO_HIGH);
+        ret = (std_ReturnType)0x01;
+    }
+    return ret;
+}
+
+
+
+
+
+std_ReturnType dc_motor_stop(const dc_motor_t * motor){
+     std_ReturnType ret = (std_ReturnType)0x01;
+    if(motor == ((void*)0)){
+        ret = (std_ReturnType)0x00;
+    }
+    else {
+        gpio_pin_write_logic(&(motor->dc_motor[0]) , GPIO_LOW);;
+        gpio_pin_write_logic(&(motor->dc_motor[1]) , GPIO_LOW);
+        ret = (std_ReturnType)0x01;
+    }
+    return ret;
 }

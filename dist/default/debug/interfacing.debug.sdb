@@ -45,7 +45,7 @@ PORTC_INDEX 2
 PORTD_INDEX 3
 PORTE_INDEX 4
 ]
-"14 G:\Embedded\Rabeh\interfacing\application.c
+"16 G:\Embedded\Rabeh\interfacing\application.c
 [e E2819 . `uc
 PORTA_INDEX 0
 PORTB_INDEX 1
@@ -63,26 +63,9 @@ GPIO_PIN5 5
 GPIO_PIN6 6
 GPIO_PIN7 7
 ]
-[e E2879 . `uc
-LED_OFF 0
-LED_ON 1
-]
-"26
-[e E2861 . `uc
-BUTTON_PRESSED 0
-BUTTON_RELEASED 1
-]
-[e E2865 . `uc
-BUTTON_CONNECTION_HIGH 0
-BUTTON_CONNECTION_LOW 1
-]
 [e E2805 . `uc
 GPIO_DIRECTION_OUTPUT 0
 GPIO_DIRECTION_INPUT 1
-]
-[e E2801 . `uc
-GPIO_LOW 0
-GPIO_HIGH 1
 ]
 "23 G:\Embedded\Rabeh\interfacing\ecu_relay.c
 [e E2484 . `uc
@@ -94,8 +77,15 @@ GPIO_DIRECTION_INPUT 1
 GPIO_LOW 0
 GPIO_HIGH 1
 ]
-"44 G:\Embedded\Rabeh\interfacing\application.c
+"39 G:\Embedded\Rabeh\interfacing\ECU_Layer/DC_Motor/ecu_dc_motor.c
+[e E2480 . `uc
+GPIO_LOW 0
+GPIO_HIGH 1
+]
+"43 G:\Embedded\Rabeh\interfacing\application.c
 [v _main main `(i  1 e 2 0 ]
+"64
+[v _application_initialize application_initialize `(v  1 e 1 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\fleq.c
 [v ___fleq __fleq `(b  1 e 0 0 ]
 "62 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\float.c
@@ -120,12 +110,14 @@ GPIO_HIGH 1
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
-"15 G:\Embedded\Rabeh\interfacing\ecu_relay.c
-[v _relay_initialize relay_initialize `(uc  1 e 1 0 ]
-"29
-[v _relay_turn_on relay_turn_on `(uc  1 e 1 0 ]
-"41
-[v _relay_turn_off relay_turn_off `(uc  1 e 1 0 ]
+"16 G:\Embedded\Rabeh\interfacing\ECU_Layer/DC_Motor/ecu_dc_motor.c
+[v _dc_motor_initialize dc_motor_initialize `(uc  1 e 1 0 ]
+"33
+[v _dc_motor_move_right dc_motor_move_right `(uc  1 e 1 0 ]
+"50
+[v _dc_motor_move_left dc_motor_move_left `(uc  1 e 1 0 ]
+"67
+[v _dc_motor_stop dc_motor_stop `(uc  1 e 1 0 ]
 "22 G:\Embedded\Rabeh\interfacing\MCAL_Layer/GPIO/hal_gpio.c
 [v _gpio_pin_direction_initialize gpio_pin_direction_initialize `(uc  1 e 1 0 ]
 "74
@@ -136,13 +128,17 @@ GPIO_HIGH 1
 [v _gpio_pin_initialize gpio_pin_initialize `(uc  1 e 1 0 ]
 "144
 [v _gpio_pin_toggle_logic gpio_pin_toggle_logic `(uc  1 e 1 0 ]
-[s S309 . 1 `uc 1 relay_port 1 0 :4:0 
-`uc 1 relay_pin 1 0 :3:4 
-`uc 1 relay_status 1 0 :1:7 
+[s S24 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
 ]
-"35 G:\Embedded\Rabeh\interfacing\application.c
-[v _relay1 relay1 `S309  1 e 1 0 ]
-"41
+"16 G:\Embedded\Rabeh\interfacing\application.c
+[s S271 . 2 `[2]S24 1 dc_motor 2 0 ]
+[v _dc_motor_1 dc_motor_1 `S271  1 e 2 0 ]
+"28
+[v _dc_motor_2 dc_motor_2 `S271  1 e 2 0 ]
+"40
 [v _ret ret `uc  1 e 1 0 ]
 "52 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4620.h
 [v _PORTA PORTA `VEuc  1 e 1 @3968 ]
@@ -180,75 +176,74 @@ GPIO_HIGH 1
 [v _lat_register lat_register `[5]*.39VEuc  1 e 10 0 ]
 "12
 [v _port_register port_register `[5]*.39VEuc  1 e 10 0 ]
-"44 G:\Embedded\Rabeh\interfacing\application.c
+"43 G:\Embedded\Rabeh\interfacing\application.c
 [v _main main `(i  1 e 2 0 ]
 {
-"56
+"63
 } 0
-"29 G:\Embedded\Rabeh\interfacing\ecu_relay.c
-[v _relay_turn_on relay_turn_on `(uc  1 e 1 0 ]
+"67 G:\Embedded\Rabeh\interfacing\ECU_Layer/DC_Motor/ecu_dc_motor.c
+[v _dc_motor_stop dc_motor_stop `(uc  1 e 1 0 ]
 {
+"68
+[v dc_motor_stop@ret ret `uc  1 a 1 12 ]
 [s S24 . 1 `uc 1 port 1 0 :3:0 
 `uc 1 pin 1 0 :3:3 
 `uc 1 direction 1 0 :1:6 
 `uc 1 logic 1 0 :1:7 
 ]
-"35
-[v relay_turn_on@pin_obj pin_obj `S24  1 a 1 14 ]
-"30
-[v relay_turn_on@ret ret `uc  1 a 1 13 ]
-[s S309 . 1 `uc 1 relay_port 1 0 :4:0 
-`uc 1 relay_pin 1 0 :3:4 
-`uc 1 relay_status 1 0 :1:7 
-]
-"29
-[v relay_turn_on@relay relay `*.39CS309  1 p 2 10 ]
+"67
+[s S271 . 2 `[2]S24 1 dc_motor 2 0 ]
+[v dc_motor_stop@motor motor `*.39CS271  1 p 2 10 ]
+"78
+} 0
+"33
+[v _dc_motor_move_right dc_motor_move_right `(uc  1 e 1 0 ]
+{
 "34
-[v relay_turn_on@F2561 F2561 `S24  1 s 1 F2561 ]
-"39
-} 0
-"41
-[v _relay_turn_off relay_turn_off `(uc  1 e 1 0 ]
-{
+[v dc_motor_move_right@ret ret `uc  1 a 1 12 ]
 [s S24 . 1 `uc 1 port 1 0 :3:0 
 `uc 1 pin 1 0 :3:3 
 `uc 1 direction 1 0 :1:6 
 `uc 1 logic 1 0 :1:7 
 ]
-"47
-[v relay_turn_off@pin_obj pin_obj `S24  1 a 1 14 ]
-"42
-[v relay_turn_off@ret ret `uc  1 a 1 13 ]
-[s S309 . 1 `uc 1 relay_port 1 0 :4:0 
-`uc 1 relay_pin 1 0 :3:4 
-`uc 1 relay_status 1 0 :1:7 
-]
-"41
-[v relay_turn_off@relay relay `*.39CS309  1 p 2 10 ]
-"46
-[v relay_turn_off@F2566 F2566 `S24  1 s 1 F2566 ]
+"33
+[s S271 . 2 `[2]S24 1 dc_motor 2 0 ]
+[v dc_motor_move_right@motor motor `*.39CS271  1 p 2 10 ]
+"44
+} 0
+"50
+[v _dc_motor_move_left dc_motor_move_left `(uc  1 e 1 0 ]
+{
 "51
-} 0
-"15
-[v _relay_initialize relay_initialize `(uc  1 e 1 0 ]
-{
+[v dc_motor_move_left@ret ret `uc  1 a 1 12 ]
 [s S24 . 1 `uc 1 port 1 0 :3:0 
 `uc 1 pin 1 0 :3:3 
 `uc 1 direction 1 0 :1:6 
 `uc 1 logic 1 0 :1:7 
 ]
-"23
-[v relay_initialize@pin_obj pin_obj `S24  1 a 1 18 ]
-"16
-[v relay_initialize@ret ret `uc  1 a 1 17 ]
-[s S309 . 1 `uc 1 relay_port 1 0 :4:0 
-`uc 1 relay_pin 1 0 :3:4 
-`uc 1 relay_status 1 0 :1:7 
+"50
+[s S271 . 2 `[2]S24 1 dc_motor 2 0 ]
+[v dc_motor_move_left@motor motor `*.39CS271  1 p 2 10 ]
+"61
+} 0
+"64 G:\Embedded\Rabeh\interfacing\application.c
+[v _application_initialize application_initialize `(v  1 e 1 0 ]
+{
+"67
+} 0
+"16 G:\Embedded\Rabeh\interfacing\ECU_Layer/DC_Motor/ecu_dc_motor.c
+[v _dc_motor_initialize dc_motor_initialize `(uc  1 e 1 0 ]
+{
+"17
+[v dc_motor_initialize@ret ret `uc  1 a 1 16 ]
+[s S24 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
 ]
-"15
-[v relay_initialize@relay relay `*.39CS309  1 p 2 14 ]
-"22
-[v relay_initialize@F2556 F2556 `S24  1 s 1 F2556 ]
+"16
+[s S271 . 2 `[2]S24 1 dc_motor 2 0 ]
+[v dc_motor_initialize@motor motor `*.39CS271  1 p 2 14 ]
 "27
 } 0
 "122 G:\Embedded\Rabeh\interfacing\MCAL_Layer/GPIO/hal_gpio.c
