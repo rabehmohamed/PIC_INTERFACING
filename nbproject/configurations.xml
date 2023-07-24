@@ -17,6 +17,10 @@
           <itemPath>ECU_Layer/DC_Motor/ecu_dc_motor.h</itemPath>
           <itemPath>ECU_Layer/DC_Motor/ecu_dc_motor_config.h</itemPath>
         </logicalFolder>
+        <logicalFolder name="Keypad" displayName="Keypad" projectFiles="true">
+          <itemPath>ECU_Layer/Keypad/ecu_keypad.h</itemPath>
+          <itemPath>ECU_Layer/Keypad/ecu_keypad_config.h</itemPath>
+        </logicalFolder>
         <logicalFolder name="LED" displayName="LED" projectFiles="true">
           <itemPath>ECU_Layer/LED/ecu_led.h</itemPath>
           <itemPath>ECU_Layer/LED/ecu_led_config.h</itemPath>
@@ -53,11 +57,14 @@
         </logicalFolder>
         <logicalFolder name="DC_Motor" displayName="DC_Motor" projectFiles="true">
         </logicalFolder>
+        <logicalFolder name="Keypad" displayName="Keypad" projectFiles="true">
+          <itemPath>ECU_Layer/Keypad/ecu_keypad.c</itemPath>
+        </logicalFolder>
         <logicalFolder name="LED" displayName="LED" projectFiles="true">
           <itemPath>ECU_Layer/LED/ecu_led.c</itemPath>
         </logicalFolder>
         <logicalFolder name="Relay" displayName="Relay" projectFiles="true">
-          <itemPath>ecu_relay.c</itemPath>
+          <itemPath>ECU_Layer/Relay/ecu_relay.c</itemPath>
         </logicalFolder>
         <itemPath>ECU_Layer/DC_Motor/ecu_dc_motor.c</itemPath>
         <itemPath>ECU_Layer/7_Segment/ecu_seven_segment.c</itemPath>

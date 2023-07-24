@@ -16,4 +16,6 @@ ECU_Layer/Relay/ecu_relay_config.h  \
 ECU_Layer/DC_Motor/ecu_dc_motor.h  \
 ECU_Layer/DC_Motor/ecu_dc_motor_config.h  \
 ECU_Layer/7_Segment/ecu_seven_segment.h  \
-ECU_Layer/7_Segment/ecu_seven_segment_config.h 
+ECU_Layer/7_Segment/ecu_seven_segment_config.h  \
+ECU_Layer/Keypad/ecu_keypad.h  \
+ECU_Layer/Keypad/ecu_keypad_config.h 
