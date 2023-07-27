@@ -11,7 +11,8 @@
 /*----------INCLUDES--------------*/
 #include "std_libraries.h"
 #include "compiler.h"
-
+#include <string.h>
+#include <stdio.h>
 /*----------DATA TYPE DECLARTIONS------------------*/
 typedef unsigned char uint8;
 typedef unsigned short uint16;
@@ -35,7 +36,7 @@ typedef uint8 std_ReturnType;
 
 #define E_NOT_OK      (std_ReturnType)0x00
 #define E_OK          (std_ReturnType)0x01
-
+#define _XTAL_FREQ 8000000UL
 
 
 

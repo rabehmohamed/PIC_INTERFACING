@@ -75,7 +75,7 @@ std_ReturnType gpio_pin_get_direction_status(const pin_config_t * pin_config , d
 std_ReturnType gpio_pin_write_logic(const pin_config_t * pin_config , logic_t logic);
 std_ReturnType gpio_pin_read_logic(const pin_config_t * pin_config , logic_t *logic);
 std_ReturnType gpio_pin_toggle_logic(const pin_config_t * pin_config);
- std_ReturnType gpio_pin_initialize(const pin_config_t * pin_config);
+std_ReturnType gpio_pin_initialize(const pin_config_t * pin_config);
 
 
 std_ReturnType gpio_port_direction_initialize(port_index port , uint8 direction);

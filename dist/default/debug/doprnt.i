@@ -843,11 +843,11 @@ static char dbuf[32];
 
 
 
+static int nout;
 
 
 
-
-static void pad(FILE *fp, char *buf, int p)
+static int pad(FILE *fp, char *buf, int p)
 {
     int i, w;
 # 164 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\sources\\c99\\common\\doprnt.c"
@@ -868,11 +868,11 @@ static void pad(FILE *fp, char *buf, int p)
 
 
 
-
+    return (int)(strlen(buf) + (size_t)w);
 
 }
 # 470 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\sources\\c99\\common\\doprnt.c"
-static void dtoa(FILE *fp, vfpf_sint_t d)
+static int dtoa(FILE *fp, vfpf_sint_t d)
 {
  char s;
     int i, p, w;
@@ -921,10 +921,10 @@ static void dtoa(FILE *fp, vfpf_sint_t d)
     }
 
 
-    return (void) pad(fp, &dbuf[i], w);
+    return (int) pad(fp, &dbuf[i], w);
 }
 # 1047 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\sources\\c99\\common\\doprnt.c"
-static void
+static int
 vfpfcnvrt(FILE *fp, char *fmt[], va_list ap)
 {
     char c, *cp;
@@ -952,17 +952,17 @@ vfpfcnvrt(FILE *fp, char *fmt[], va_list ap)
    convarg.sint = (vfpf_sint_t)(int)(*(int *)__va_arg(*(int **)ap, (int)0));
 
    *fmt = cp+1;
-   return (void) dtoa(fp, convarg.sint);
+   return (int) dtoa(fp, convarg.sint);
   }
 # 1535 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\sources\\c99\\common\\doprnt.c"
         ++*fmt;
-        return (void) 0;
+        return (int) 0;
     }
 
 
     fputc((int)(*fmt)[0], fp);
     ++*fmt;
-    return (void) 1;
+    return (int) 1;
 }
 
 
@@ -973,18 +973,18 @@ int vfprintf(FILE *fp, const char *fmt, va_list ap)
 
     cfmt = (char *)fmt;
 
-
+    nout = 0;
 
     while (*cfmt) {
 
-
+        nout +=
 
    vfpfcnvrt(fp, &cfmt, ap);
     }
 
+    return nout;
 
 
- return 0;
 
 
 

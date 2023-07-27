@@ -8,9 +8,6 @@
 #ifndef STD_LIBRARIES_H
 #define	STD_LIBRARIES_H
 
-#ifdef	__cplusplus
-extern "C" {
-#endif
 
 
 

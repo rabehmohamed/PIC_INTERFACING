@@ -1,31 +1,41 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"64 ./ECU_Layer/Keypad/../../MCAL_Layer/GPIO/hal_gpio.h
-[s S272 :3 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S272 . port pin direction logic ]
-"20 ./ECU_Layer/Keypad/ecu_keypad.h
-[; ;./ECU_Layer/Keypad/ecu_keypad.h: 20: typedef struct{
-[s S278 `S272 -> 4 `i `S272 -> 4 `i ]
-[n S278 . keypad_rows_pins keypad_columns_pins ]
+"64 ./ECU_Layer/LCD/../../MCAL_Layer/GPIO/hal_gpio.h
+[s S273 :3 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S273 . port pin direction logic ]
+"36 ./ECU_Layer/LCD/ecu_lcd.h
+[; ;./ECU_Layer/LCD/ecu_lcd.h: 36: typedef struct {
+[s S280 `S273 1 `S273 1 `S273 -> 4 `i ]
+[n S280 . lcd_rs lcd_en lcd_data ]
 "19 application.c
-[; ;application.c: 19: keypad_t keypad1 ={
-[c E2819 0 1 2 3 4 .. ]
-[n E2819 . PORTA_INDEX PORTB_INDEX PORTC_INDEX PORTD_INDEX PORTE_INDEX  ]
-[c E2809 0 1 2 3 4 5 6 7 .. ]
-[n E2809 . GPIO_PIN0 GPIO_PIN1 GPIO_PIN2 GPIO_PIN3 GPIO_PIN4 GPIO_PIN5 GPIO_PIN6 GPIO_PIN7  ]
-[c E2805 0 1 .. ]
-[n E2805 . GPIO_DIRECTION_OUTPUT GPIO_DIRECTION_INPUT  ]
-[c E2801 0 1 .. ]
-[n E2801 . GPIO_LOW GPIO_HIGH  ]
+[; ;application.c: 19: lcd_4bit_t lcd1_4 ={
+[c E2986 0 1 2 3 4 .. ]
+[n E2986 . PORTA_INDEX PORTB_INDEX PORTC_INDEX PORTD_INDEX PORTE_INDEX  ]
+[c E2976 0 1 2 3 4 5 6 7 .. ]
+[n E2976 . GPIO_PIN0 GPIO_PIN1 GPIO_PIN2 GPIO_PIN3 GPIO_PIN4 GPIO_PIN5 GPIO_PIN6 GPIO_PIN7  ]
+[c E2972 0 1 .. ]
+[n E2972 . GPIO_DIRECTION_OUTPUT GPIO_DIRECTION_INPUT  ]
+[c E2968 0 1 .. ]
+[n E2968 . GPIO_LOW GPIO_HIGH  ]
+"42 ./ECU_Layer/LCD/ecu_lcd.h
+[; ;./ECU_Layer/LCD/ecu_lcd.h: 42: typedef struct {
+[s S281 `S273 1 `S273 1 `S273 -> 8 `i ]
+[n S281 . lcd_rs lcd_en lcd_data ]
 [p mainexit ]
-"25 ./ECU_Layer/Keypad/ecu_keypad.h
-[; ;./ECU_Layer/Keypad/ecu_keypad.h: 25: std_ReturnType keypad_initialize(const keypad_t * keypad);
-[v _keypad_initialize `(uc ~T0 @X0 0 ef1`*CS278 ]
-"15 application.c
-[; ;application.c: 15: void application_initialize(void);
+"16 application.c
+[; ;application.c: 16: void application_initialize(void);
 [v _application_initialize `(v ~T0 @X0 0 ef ]
-"26 ./ECU_Layer/Keypad/ecu_keypad.h
-[; ;./ECU_Layer/Keypad/ecu_keypad.h: 26: std_ReturnType keypad_get_value(const keypad_t * keypad , uint8 * value);
-[v _keypad_get_value `(uc ~T0 @X0 0 ef2`*CS278`*uc ]
+"60 ./ECU_Layer/LCD/ecu_lcd.h
+[; ;./ECU_Layer/LCD/ecu_lcd.h: 60: std_ReturnType lcd_8bit_send_string(const lcd_8bit_t *lcd ,uint8 *str);
+[v _lcd_8bit_send_string `(uc ~T0 @X0 0 ef2`*CS281`*uc ]
+"64
+[; ;./ECU_Layer/LCD/ecu_lcd.h: 64: std_ReturnType convert_uint8_to_string(uint8 value , uint8 *str);
+[v _convert_uint8_to_string `(uc ~T0 @X0 0 ef2`uc`*uc ]
+"62
+[; ;./ECU_Layer/LCD/ecu_lcd.h: 62: std_ReturnType lcd_8bit_send_cutsom_char(const lcd_8bit_t *lcd , const uint8 _chr[] , uint8 row , uint8 column , uint8 mem_pos);
+[v _lcd_8bit_send_cutsom_char `(uc ~T0 @X0 0 ef5`*CS281`*Cuc`uc`uc`uc ]
+"56
+[; ;./ECU_Layer/LCD/ecu_lcd.h: 56: std_ReturnType lcd_8bit_initialize(const lcd_8bit_t *lcd);
+[v _lcd_8bit_initialize `(uc ~T0 @X0 0 ef1`*CS281 ]
 "54 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4620.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4620.h: 54: __asm("PORTA equ 0F80h");
 [; <" PORTA equ 0F80h ;# ">
@@ -437,120 +447,249 @@ Version 4.0 HI-TECH Software Intermediate Code
 "6715
 [; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4620.h: 6715: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"19 application.c
-[; ;application.c: 19: keypad_t keypad1 ={
-[v _keypad1 `S278 ~T0 @X0 1 e ]
-[i _keypad1
-:U ..
-:U ..
-:U ..
-:U ..
--> . `E2819 2 `uc
--> . `E2809 0 `uc
--> . `E2805 0 `uc
--> . `E2801 0 `uc
-..
-:U ..
--> . `E2819 2 `uc
--> . `E2809 1 `uc
--> . `E2805 0 `uc
--> . `E2801 0 `uc
-..
-:U ..
--> . `E2819 2 `uc
--> . `E2809 2 `uc
--> . `E2805 0 `uc
--> . `E2801 0 `uc
-..
-:U ..
--> . `E2819 2 `uc
--> . `E2809 3 `uc
--> . `E2805 0 `uc
--> . `E2801 0 `uc
-..
-..
-:U ..
-:U ..
--> . `E2819 2 `uc
--> . `E2809 4 `uc
--> . `E2805 1 `uc
--> . `E2801 0 `uc
-..
-:U ..
--> . `E2819 2 `uc
--> . `E2809 5 `uc
--> . `E2805 1 `uc
--> . `E2801 0 `uc
-..
-:U ..
--> . `E2819 2 `uc
--> . `E2809 6 `uc
--> . `E2805 1 `uc
--> . `E2801 0 `uc
-..
-:U ..
--> . `E2819 2 `uc
--> . `E2809 7 `uc
--> . `E2805 1 `uc
--> . `E2801 0 `uc
-..
-..
-..
-..
-]
-"61
-[; ;application.c: 61:  std_ReturnType ret = (std_ReturnType)0x00;
+"15 application.c
+[; ;application.c: 15: std_ReturnType ret = (std_ReturnType)0x00;
 [v _ret `uc ~T0 @X0 1 e ]
 [i _ret
 -> -> 0 `i `uc
 ]
-"62
-[; ;application.c: 62:  uint8 keypad_value = 0;
-[v _keypad_value `uc ~T0 @X0 1 e ]
-[i _keypad_value
+"19
+[; ;application.c: 19: lcd_4bit_t lcd1_4 ={
+[v _lcd1_4 `S280 ~T0 @X0 1 e ]
+[i _lcd1_4
+:U ..
+:U ..
+:U ..
+:U ..
+-> . `E2986 2 `uc
+-> . `E2976 0 `uc
+-> . `E2972 0 `uc
+-> . `E2968 0 `uc
+..
+..
+:U ..
+:U ..
+-> . `E2986 2 `uc
+-> . `E2976 1 `uc
+-> . `E2972 0 `uc
+-> . `E2968 0 `uc
+..
+..
+:U ..
+:U ..
+-> . `E2986 2 `uc
+-> . `E2976 2 `uc
+-> . `E2972 0 `uc
+-> . `E2968 0 `uc
+..
+:U ..
+-> . `E2986 2 `uc
+-> . `E2976 3 `uc
+-> . `E2972 0 `uc
+-> . `E2968 0 `uc
+..
+:U ..
+-> . `E2986 2 `uc
+-> . `E2976 4 `uc
+-> . `E2972 0 `uc
+-> . `E2968 0 `uc
+..
+:U ..
+-> . `E2986 2 `uc
+-> . `E2976 5 `uc
+-> . `E2972 0 `uc
+-> . `E2968 0 `uc
+..
+..
+..
+..
+]
+"48
+[; ;application.c: 48: lcd_8bit_t lcd2_8 ={
+[v _lcd2_8 `S281 ~T0 @X0 1 e ]
+[i _lcd2_8
+:U ..
+:U ..
+:U ..
+:U ..
+-> . `E2986 2 `uc
+-> . `E2976 6 `uc
+-> . `E2972 0 `uc
+-> . `E2968 0 `uc
+..
+..
+:U ..
+:U ..
+-> . `E2986 2 `uc
+-> . `E2976 7 `uc
+-> . `E2972 0 `uc
+-> . `E2968 0 `uc
+..
+..
+:U ..
+:U ..
+-> . `E2986 3 `uc
+-> . `E2976 0 `uc
+-> . `E2972 0 `uc
+-> . `E2968 0 `uc
+..
+:U ..
+-> . `E2986 3 `uc
+-> . `E2976 1 `uc
+-> . `E2972 0 `uc
+-> . `E2968 0 `uc
+..
+:U ..
+-> . `E2986 3 `uc
+-> . `E2976 2 `uc
+-> . `E2972 0 `uc
+-> . `E2968 0 `uc
+..
+:U ..
+-> . `E2986 3 `uc
+-> . `E2976 3 `uc
+-> . `E2972 0 `uc
+-> . `E2968 0 `uc
+..
+:U ..
+-> . `E2986 3 `uc
+-> . `E2976 4 `uc
+-> . `E2972 0 `uc
+-> . `E2968 0 `uc
+..
+:U ..
+-> . `E2986 3 `uc
+-> . `E2976 5 `uc
+-> . `E2972 0 `uc
+-> . `E2968 0 `uc
+..
+:U ..
+-> . `E2986 3 `uc
+-> . `E2976 6 `uc
+-> . `E2972 0 `uc
+-> . `E2968 0 `uc
+..
+:U ..
+-> . `E2986 3 `uc
+-> . `E2976 7 `uc
+-> . `E2972 0 `uc
+-> . `E2968 0 `uc
+..
+..
+..
+..
+]
+"92
+[; ;application.c: 92: uint8 number = 23;
+[v _number `uc ~T0 @X0 1 e ]
+[i _number
+-> -> 23 `i `uc
+]
+"93
+[; ;application.c: 93: uint8 number_txt[3];
+[v _number_txt `uc ~T0 @X0 -> 3 `i e ]
+"95
+[; ;application.c: 95: const uint8 customChar1[] = {
+[v _customChar1 `Cuc ~T0 @X0 -> 8 `i e ]
+[i _customChar1
+:U ..
+-> -> 14 `i `uc
+-> -> 10 `i `uc
+-> -> 17 `i `uc
+-> -> 17 `i `uc
+-> -> 17 `i `uc
+-> -> 17 `i `uc
+-> -> 31 `i `uc
 -> -> 0 `i `uc
+..
+]
+"106
+[; ;application.c: 106: const uint8 customChar2[] = {
+[v _customChar2 `Cuc ~T0 @X0 -> 8 `i e ]
+[i _customChar2
+:U ..
+-> -> 14 `i `uc
+-> -> 10 `i `uc
+-> -> 17 `i `uc
+-> -> 17 `i `uc
+-> -> 17 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 0 `i `uc
+..
+]
+"117
+[; ;application.c: 117: const uint8 customChar3[] = {
+[v _customChar3 `Cuc ~T0 @X0 -> 8 `i e ]
+[i _customChar3
+:U ..
+-> -> 14 `i `uc
+-> -> 10 `i `uc
+-> -> 17 `i `uc
+-> -> 17 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 0 `i `uc
+..
 ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"64
-[; ;application.c: 64: int main() {
+"129
+[; ;application.c: 129: int main() {
 [v _main `(i ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"65
-[; ;application.c: 65:     ret = keypad_initialize(&keypad1);
-[e = _ret ( _keypad_initialize (1 -> &U _keypad1 `*CS278 ]
-"66
-[; ;application.c: 66:     application_initialize();
+"131
+[; ;application.c: 131:     application_initialize();
 [e ( _application_initialize ..  ]
-"68
-[; ;application.c: 68:     while(1){
-[e :U 281 ]
+"132
+[; ;application.c: 132:     ret = lcd_8bit_send_string(&lcd2_8 , "RabehMohamed");
+[e = _ret ( _lcd_8bit_send_string (2 , -> &U _lcd2_8 `*CS281 :s 1C ]
+"134
+[; ;application.c: 134:     ret = convert_uint8_to_string(number , number_txt);
+[e = _ret ( _convert_uint8_to_string (2 , _number &U _number_txt ]
+"135
+[; ;application.c: 135:     ret = lcd_8bit_send_string(&lcd2_8 , number_txt);
+[e = _ret ( _lcd_8bit_send_string (2 , -> &U _lcd2_8 `*CS281 &U _number_txt ]
+"139
+[; ;application.c: 139:     while(1){
+[e :U 284 ]
 {
-"69
-[; ;application.c: 69:         ret = keypad_get_value(&keypad1 , &keypad_value);
-[e = _ret ( _keypad_get_value (2 , -> &U _keypad1 `*CS278 &U _keypad_value ]
-"70
-[; ;application.c: 70:     }
+"140
+[; ;application.c: 140:         ret = lcd_8bit_send_cutsom_char(&lcd2_8 ,customChar1 , 1 , 12 , 0 );
+[e = _ret ( _lcd_8bit_send_cutsom_char (4 , , , , -> &U _lcd2_8 `*CS281 &U _customChar1 -> -> 1 `i `uc -> -> 12 `i `uc -> -> 0 `i `uc ]
+"141
+[; ;application.c: 141:         ret = lcd_8bit_send_cutsom_char(&lcd2_8 ,customChar2 , 1 , 12 , 0 );
+[e = _ret ( _lcd_8bit_send_cutsom_char (4 , , , , -> &U _lcd2_8 `*CS281 &U _customChar2 -> -> 1 `i `uc -> -> 12 `i `uc -> -> 0 `i `uc ]
+"142
+[; ;application.c: 142:         ret = lcd_8bit_send_cutsom_char(&lcd2_8 ,customChar3 , 1 , 12 , 0 );
+[e = _ret ( _lcd_8bit_send_cutsom_char (4 , , , , -> &U _lcd2_8 `*CS281 &U _customChar3 -> -> 1 `i `uc -> -> 12 `i `uc -> -> 0 `i `uc ]
+"143
+[; ;application.c: 143:     }
 }
-[e :U 280 ]
-[e $U 281  ]
-[e :U 282 ]
-"71
-[; ;application.c: 71:     return (0);
+[e :U 283 ]
+[e $U 284  ]
+[e :U 285 ]
+"144
+[; ;application.c: 144:     return (0);
 [e ) -> 0 `i ]
-[e $UE 279  ]
-"72
-[; ;application.c: 72: }
-[e :UE 279 ]
+[e $UE 282  ]
+"145
+[; ;application.c: 145: }
+[e :UE 282 ]
 }
-"73
-[; ;application.c: 73: void application_initialize(void){
+"146
+[; ;application.c: 146: void application_initialize(void){
 [v _application_initialize `(v ~T0 @X0 1 ef ]
 {
 [e :U _application_initialize ]
 [f ]
-"75
-[; ;application.c: 75: }
-[e :UE 283 ]
+"148
+[; ;application.c: 148:     ret = lcd_8bit_initialize(&lcd2_8);
+[e = _ret ( _lcd_8bit_initialize (1 -> &U _lcd2_8 `*CS281 ]
+"149
+[; ;application.c: 149: }
+[e :UE 286 ]
 }
+[a 1C 82 97 98 101 104 77 111 104 97 109 101 100 0 ]

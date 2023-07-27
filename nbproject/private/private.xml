@@ -5,8 +5,11 @@
         <group>
             <file>file:/G:/Embedded/Rabeh/interfacing/ECU_Layer/LED/ecu_led.h</file>
             <file>file:/G:/Embedded/Rabeh/interfacing/ECU_Layer/Keypad/ecu_keypad.c</file>
+            <file>file:/G:/Embedded/Rabeh/interfacing/ECU_Layer/DC_Motor/ecu_dc_motor.c</file>
             <file>file:/G:/Embedded/Rabeh/interfacing/application.c</file>
             <file>file:/G:/Embedded/Rabeh/interfacing/MCAL_Layer/GPIO/hal_gpio.h</file>
+            <file>file:/G:/Embedded/Rabeh/interfacing/ECU_Layer/7_Segment/ecu_seven_segment.h</file>
+            <file>file:/G:/Embedded/Rabeh/interfacing/ECU_Layer/DC_Motor/ecu_dc_motor.h</file>
             <file>file:/G:/Embedded/Rabeh/interfacing/ECU_Layer/Keypad/ecu_keypad.h</file>
             <file>file:/G:/Embedded/Rabeh/interfacing/application.h</file>
             <file>file:/G:/Embedded/Rabeh/interfacing/MCAL_Layer/GPIO/hal_gpio.c</file>

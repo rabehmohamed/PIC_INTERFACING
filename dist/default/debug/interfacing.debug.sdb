@@ -4,56 +4,71 @@
 [d chip 18F4620 ]
 [d frameptr 4065 ]
 "19 G:\Embedded\Rabeh\interfacing\ECU_Layer/BUTTON/ecu_button.c
-[e E2540 . `uc
+[e E3028 . `uc
 BUTTON_PRESSED 0
 BUTTON_RELEASED 1
 ]
-[e E2544 . `uc
+[e E3032 . `uc
 BUTTON_CONNECTION_HIGH 0
 BUTTON_CONNECTION_LOW 1
 ]
 "40
-[e E2480 . `uc
+[e E2968 . `uc
+GPIO_LOW 0
+GPIO_HIGH 1
+]
+"57 G:\Embedded\Rabeh\interfacing\ECU_Layer/Keypad/ecu_keypad.c
+[e E2968 . `uc
 GPIO_LOW 0
 GPIO_HIGH 1
 ]
 "27 G:\Embedded\Rabeh\interfacing\ECU_Layer/LED/ecu_led.c
-[e E2484 . `uc
+[e E2972 . `uc
 GPIO_DIRECTION_OUTPUT 0
 GPIO_DIRECTION_INPUT 1
 ]
 "56
-[e E2480 . `uc
+[e E2968 . `uc
+GPIO_LOW 0
+GPIO_HIGH 1
+]
+"23 G:\Embedded\Rabeh\interfacing\ECU_Layer/Relay/ecu_relay.c
+[e E2972 . `uc
+GPIO_DIRECTION_OUTPUT 0
+GPIO_DIRECTION_INPUT 1
+]
+"36
+[e E2968 . `uc
 GPIO_LOW 0
 GPIO_HIGH 1
 ]
 "39 G:\Embedded\Rabeh\interfacing\ECU_Layer/DC_Motor/ecu_dc_motor.c
-[e E2480 . `uc
+[e E2968 . `uc
 GPIO_LOW 0
 GPIO_HIGH 1
 ]
 "16 G:\Embedded\Rabeh\interfacing\ECU_Layer/7_Segment/ecu_seven_segment.c
-[e E2540 . `uc
+[e E3028 . `uc
 SEGMENT_COMMON_ANODE 0
 SEGMENT_COMMON_CATHODE 1
 ]
 "38
-[e E2480 . `uc
+[e E2968 . `uc
 GPIO_LOW 0
 GPIO_HIGH 1
 ]
 "37 G:\Embedded\Rabeh\interfacing\MCAL_Layer/GPIO/hal_gpio.c
-[e E2484 . `uc
+[e E2972 . `uc
 GPIO_DIRECTION_OUTPUT 0
 GPIO_DIRECTION_INPUT 1
 ]
 "74
-[e E2480 . `uc
+[e E2968 . `uc
 GPIO_LOW 0
 GPIO_HIGH 1
 ]
 "165
-[e E2498 . `uc
+[e E2986 . `uc
 PORTA_INDEX 0
 PORTB_INDEX 1
 PORTC_INDEX 2
@@ -61,14 +76,14 @@ PORTD_INDEX 3
 PORTE_INDEX 4
 ]
 "19 G:\Embedded\Rabeh\interfacing\application.c
-[e E2819 . `uc
+[e E2986 . `uc
 PORTA_INDEX 0
 PORTB_INDEX 1
 PORTC_INDEX 2
 PORTD_INDEX 3
 PORTE_INDEX 4
 ]
-[e E2809 . `uc
+[e E2976 . `uc
 GPIO_PIN0 0
 GPIO_PIN1 1
 GPIO_PIN2 2
@@ -78,33 +93,37 @@ GPIO_PIN5 5
 GPIO_PIN6 6
 GPIO_PIN7 7
 ]
-[e E2805 . `uc
+[e E2972 . `uc
 GPIO_DIRECTION_OUTPUT 0
 GPIO_DIRECTION_INPUT 1
 ]
-[e E2801 . `uc
+[e E2968 . `uc
 GPIO_LOW 0
 GPIO_HIGH 1
 ]
-"57 G:\Embedded\Rabeh\interfacing\ECU_Layer/Keypad/ecu_keypad.c
-[e E2480 . `uc
+"62 G:\Embedded\Rabeh\interfacing\ECU_Layer/LCD/ecu_lcd.c
+[e E2968 . `uc
 GPIO_LOW 0
 GPIO_HIGH 1
 ]
-"23 G:\Embedded\Rabeh\interfacing\ECU_Layer/Relay/ecu_relay.c
-[e E2484 . `uc
-GPIO_DIRECTION_OUTPUT 0
-GPIO_DIRECTION_INPUT 1
-]
-"36
-[e E2480 . `uc
-GPIO_LOW 0
-GPIO_HIGH 1
-]
-"64 G:\Embedded\Rabeh\interfacing\application.c
+"129 G:\Embedded\Rabeh\interfacing\application.c
 [v _main main `(i  1 e 2 0 ]
-"73
+"146
 [v _application_initialize application_initialize `(v  1 e 1 0 ]
+"1 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\abs.c
+[v _abs abs `(i  1 e 2 0 ]
+"7 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+"7 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
+"152 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\doprnt.c
+[v _pad pad `(i  1 s 2 pad ]
+"470
+[v _dtoa dtoa `(i  1 s 2 dtoa ]
+"1048
+[v _vfpfcnvrt vfpfcnvrt `(i  1 s 2 vfpfcnvrt ]
+"1546
+[v _vfprintf vfprintf `(i  1 e 2 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\fleq.c
 [v ___fleq __fleq `(b  1 e 0 0 ]
 "62 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\float.c
@@ -117,6 +136,16 @@ GPIO_HIGH 1
 [v ___ftmul __ftmul `(f  1 e 4 0 ]
 "19 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\ftsub.c
 [v ___ftsub __ftsub `(f  1 e 4 0 ]
+"4 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\memset.c
+[v _memset memset `(*.39v  1 e 2 0 ]
+"8 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\nf_fputc.c
+[v _fputc fputc `(i  1 e 2 0 ]
+"8 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\nf_fputs.c
+[v _fputs fputs `(i  1 e 2 0 ]
+"9 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\nf_sprintf.c
+[v _sprintf sprintf `(i  1 e 2 0 ]
+"7 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\putch.c
+[v _putch putch `(v  1 e 1 0 ]
 "10 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
 "245
@@ -125,14 +154,40 @@ GPIO_HIGH 1
 [v ___fldiv __fldiv `(d  1 e 4 0 ]
 "8 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
+"5 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\strlen.c
+[v _strlen strlen `(ui  1 e 2 0 ]
 "15 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
-"24 G:\Embedded\Rabeh\interfacing\ECU_Layer/Keypad/ecu_keypad.c
-[v _keypad_initialize keypad_initialize `(uc  1 e 1 0 ]
-"48
-[v _keypad_get_value keypad_get_value `(uc  1 e 1 0 ]
+"56 G:\Embedded\Rabeh\interfacing\ECU_Layer/LCD/ecu_lcd.c
+[v _lcd_4bit_send_command lcd_4bit_send_command `(uc  1 e 1 0 ]
+"76
+[v _lcd_4bit_send_char_data lcd_4bit_send_char_data `(uc  1 e 1 0 ]
+"139
+[v _lcd_8bit_initialize lcd_8bit_initialize `(uc  1 e 1 0 ]
+"170
+[v _lcd_8bit_send_command lcd_8bit_send_command `(uc  1 e 1 0 ]
+"190
+[v _lcd_8bit_send_char_data lcd_8bit_send_char_data `(uc  1 e 1 0 ]
+"215
+[v _lcd_8bit_send_data_pos lcd_8bit_send_data_pos `(uc  1 e 1 0 ]
+"235
+[v _lcd_8bit_send_string lcd_8bit_send_string `(uc  1 e 1 0 ]
+"273
+[v _lcd_8bit_send_cutsom_char lcd_8bit_send_cutsom_char `(uc  1 e 1 0 ]
+"290
+[v _lcd_send_4bits lcd_send_4bits `(uc  1 s 1 lcd_send_4bits ]
+"304
+[v _convert_uint8_to_string convert_uint8_to_string `(uc  1 e 1 0 ]
+"342
+[v _lcd_4bit_send_enable lcd_4bit_send_enable `(uc  1 s 1 lcd_4bit_send_enable ]
+"355
+[v _lcd_8bit_send_enable lcd_8bit_send_enable `(uc  1 s 1 lcd_8bit_send_enable ]
+"368
+[v _lcd_8bit_set_cursor lcd_8bit_set_cursor `(uc  1 s 1 lcd_8bit_set_cursor ]
+"390
+[v _lcd_4bit_set_cursor lcd_4bit_set_cursor `(uc  1 s 1 lcd_4bit_set_cursor ]
 "22 G:\Embedded\Rabeh\interfacing\MCAL_Layer/GPIO/hal_gpio.c
 [v _gpio_pin_direction_initialize gpio_pin_direction_initialize `(uc  1 e 1 0 ]
 "74
@@ -143,18 +198,24 @@ GPIO_HIGH 1
 [v _gpio_pin_initialize gpio_pin_initialize `(uc  1 e 1 0 ]
 "144
 [v _gpio_pin_toggle_logic gpio_pin_toggle_logic `(uc  1 e 1 0 ]
+"15 G:\Embedded\Rabeh\interfacing\application.c
+[v _ret ret `uc  1 e 1 0 ]
 [s S24 . 1 `uc 1 port 1 0 :3:0 
 `uc 1 pin 1 0 :3:3 
 `uc 1 direction 1 0 :1:6 
 `uc 1 logic 1 0 :1:7 
 ]
-"19 G:\Embedded\Rabeh\interfacing\application.c
-[s S330 . 8 `[4]S24 1 keypad_rows_pins 4 0 `[4]S24 1 keypad_columns_pins 4 4 ]
-[v _keypad1 keypad1 `S330  1 e 8 0 ]
-"61
-[v _ret ret `uc  1 e 1 0 ]
-"62
-[v _keypad_value keypad_value `uc  1 e 1 0 ]
+"48
+[s S471 . 10 `S24 1 lcd_rs 1 0 `S24 1 lcd_en 1 1 `[8]S24 1 lcd_data 8 2 ]
+[v _lcd2_8 lcd2_8 `S471  1 e 10 0 ]
+"93
+[v _number_txt number_txt `[3]uc  1 e 3 0 ]
+"95
+[v _customChar1 customChar1 `C[8]uc  1 e 8 0 ]
+"106
+[v _customChar2 customChar2 `C[8]uc  1 e 8 0 ]
+"117
+[v _customChar3 customChar3 `C[8]uc  1 e 8 0 ]
 "52 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4620.h
 [v _PORTA PORTA `VEuc  1 e 1 @3968 ]
 "189
@@ -185,6 +246,15 @@ GPIO_HIGH 1
 [v _TRISD TRISD `VEuc  1 e 1 @3989 ]
 "2268
 [v _TRISE TRISE `VEuc  1 e 1 @3990 ]
+"118 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\doprnt.c
+[v _prec prec `i  1 s 2 prec ]
+[v _width width `i  1 s 2 width ]
+"119
+[v _flags flags `uc  1 s 1 flags ]
+"144
+[v _dbuf dbuf `[32]uc  1 s 32 dbuf ]
+"148
+[v _nout nout `i  1 s 2 nout ]
 "10 G:\Embedded\Rabeh\interfacing\ECU_Layer/Keypad/ecu_keypad.c
 [v _btn_values btn_values `C[4][4]uc  1 s 16 btn_values ]
 "10 G:\Embedded\Rabeh\interfacing\MCAL_Layer/GPIO/hal_gpio.c
@@ -193,29 +263,318 @@ GPIO_HIGH 1
 [v _lat_register lat_register `[5]*.39VEuc  1 e 10 0 ]
 "12
 [v _port_register port_register `[5]*.39VEuc  1 e 10 0 ]
-"64 G:\Embedded\Rabeh\interfacing\application.c
+"129 G:\Embedded\Rabeh\interfacing\application.c
 [v _main main `(i  1 e 2 0 ]
 {
-"72
+"145
 } 0
-"24 G:\Embedded\Rabeh\interfacing\ECU_Layer/Keypad/ecu_keypad.c
-[v _keypad_initialize keypad_initialize `(uc  1 e 1 0 ]
+"235 G:\Embedded\Rabeh\interfacing\ECU_Layer/LCD/ecu_lcd.c
+[v _lcd_8bit_send_string lcd_8bit_send_string `(uc  1 e 1 0 ]
 {
-"33
-[v keypad_initialize@col_counter col_counter `uc  1 a 1 20 ]
-"30
-[v keypad_initialize@row_counter row_counter `uc  1 a 1 19 ]
-"25
-[v keypad_initialize@ret ret `uc  1 a 1 18 ]
+"236
+[v lcd_8bit_send_string@ret ret `uc  1 a 1 26 ]
 [s S24 . 1 `uc 1 port 1 0 :3:0 
 `uc 1 pin 1 0 :3:3 
 `uc 1 direction 1 0 :1:6 
 `uc 1 logic 1 0 :1:7 
 ]
+"235
+[s S471 . 10 `S24 1 lcd_rs 1 0 `S24 1 lcd_en 1 1 `[8]S24 1 lcd_data 8 2 ]
+[v lcd_8bit_send_string@lcd lcd `*.39CS471  1 p 2 22 ]
+[v lcd_8bit_send_string@str str `*.35uc  1 p 2 24 ]
+"247
+} 0
+"273
+[v _lcd_8bit_send_cutsom_char lcd_8bit_send_cutsom_char `(uc  1 e 1 0 ]
+{
+"281
+[v lcd_8bit_send_cutsom_char@i i `uc  1 a 1 45 ]
+"274
+[v lcd_8bit_send_cutsom_char@ret ret `uc  1 a 1 44 ]
+[s S24 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+"273
+[s S471 . 10 `S24 1 lcd_rs 1 0 `S24 1 lcd_en 1 1 `[8]S24 1 lcd_data 8 2 ]
+[v lcd_8bit_send_cutsom_char@lcd lcd `*.39CS471  1 p 2 35 ]
+[v lcd_8bit_send_cutsom_char@_chr _chr `*.25Cuc  1 p 2 37 ]
+[v lcd_8bit_send_cutsom_char@row row `uc  1 p 1 39 ]
+[v lcd_8bit_send_cutsom_char@column column `uc  1 p 1 40 ]
+[v lcd_8bit_send_cutsom_char@mem_pos mem_pos `uc  1 p 1 41 ]
+"288
+} 0
+"215
+[v _lcd_8bit_send_data_pos lcd_8bit_send_data_pos `(uc  1 e 1 0 ]
+{
+"216
+[v lcd_8bit_send_data_pos@ret ret `uc  1 a 1 34 ]
+[s S24 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+"215
+[s S471 . 10 `S24 1 lcd_rs 1 0 `S24 1 lcd_en 1 1 `[8]S24 1 lcd_data 8 2 ]
+[v lcd_8bit_send_data_pos@lcd lcd `*.39CS471  1 p 2 29 ]
+[v lcd_8bit_send_data_pos@row row `uc  1 p 1 31 ]
+[v lcd_8bit_send_data_pos@column column `uc  1 p 1 32 ]
+[v lcd_8bit_send_data_pos@data data `uc  1 p 1 33 ]
+"227
+} 0
+"368
+[v _lcd_8bit_set_cursor lcd_8bit_set_cursor `(uc  1 s 1 lcd_8bit_set_cursor ]
+{
+"369
+[v lcd_8bit_set_cursor@ret ret `uc  1 a 1 28 ]
+[s S24 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+"368
+[s S471 . 10 `S24 1 lcd_rs 1 0 `S24 1 lcd_en 1 1 `[8]S24 1 lcd_data 8 2 ]
+[v lcd_8bit_set_cursor@lcd lcd `*.39CS471  1 p 2 22 ]
+[v lcd_8bit_set_cursor@row row `uc  1 p 1 24 ]
+[v lcd_8bit_set_cursor@column column `uc  1 p 1 25 ]
+"387
+} 0
+"190
+[v _lcd_8bit_send_char_data lcd_8bit_send_char_data `(uc  1 e 1 0 ]
+{
+"197
+[v lcd_8bit_send_char_data@pin pin `uc  1 a 1 21 ]
+"191
+[v lcd_8bit_send_char_data@ret ret `uc  1 a 1 20 ]
+[s S24 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+"190
+[s S471 . 10 `S24 1 lcd_rs 1 0 `S24 1 lcd_en 1 1 `[8]S24 1 lcd_data 8 2 ]
+[v lcd_8bit_send_char_data@lcd lcd `*.39CS471  1 p 2 13 ]
+[v lcd_8bit_send_char_data@data data `uc  1 p 1 15 ]
+"205
+} 0
+"304
+[v _convert_uint8_to_string convert_uint8_to_string `(uc  1 e 1 0 ]
+{
+[v convert_uint8_to_string@value value `uc  1 a 1 wreg ]
+"305
+[v convert_uint8_to_string@ret ret `uc  1 a 1 87 ]
+"304
+[v convert_uint8_to_string@value value `uc  1 a 1 wreg ]
+[v convert_uint8_to_string@str str `*.39uc  1 p 2 84 ]
+[v convert_uint8_to_string@value value `uc  1 a 1 86 ]
+"314
+} 0
+"9 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\nf_sprintf.c
+[v _sprintf sprintf `(i  1 e 2 0 ]
+{
+[u S1273 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+"13
+[s S1276 _IO_FILE 12 `S1273 1 . 3 0 `i 1 count 2 3 `[3]uc 1 ungetbuf 3 5 `i 1 ungetcnt 2 8 `i 1 limit 2 10 ]
+[v sprintf@f f `S1276  1 a 12 72 ]
+"12
+[v sprintf@ap ap `[1]*.39v  1 a 2 70 ]
+"11
+[v sprintf@ret ret `i  1 a 2 68 ]
+"9
+[v sprintf@s s `*.39uc  1 p 2 62 ]
+[v sprintf@fmt fmt `*.25Cuc  1 p 2 64 ]
+"23
+} 0
+"1546 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\doprnt.c
+[v _vfprintf vfprintf `(i  1 e 2 0 ]
+{
+"1549
+[v vfprintf@cfmt cfmt `*.25uc  1 a 2 60 ]
+[s S1308 _IO_FILE 0 ]
+"1546
+[v vfprintf@fp fp `*.39S1308  1 p 2 54 ]
+[v vfprintf@fmt fmt `*.25Cuc  1 p 2 56 ]
+[v vfprintf@ap ap `*.39*.39v  1 p 2 58 ]
+"1569
+} 0
+"1048
+[v _vfpfcnvrt vfpfcnvrt `(i  1 s 2 vfpfcnvrt ]
+{
+[u S1331 . 4 `i 1 sint 2 0 `ui 1 uint 2 0 `*.2v 1 vp 3 0 `d 1 f 4 0 ]
+"1059
+[v vfpfcnvrt@convarg convarg `S1331  1 a 4 48 ]
+"1050
+[v vfpfcnvrt@cp cp `*.25uc  1 a 2 52 ]
+[s S1308 _IO_FILE 0 ]
+"1048
+[v vfpfcnvrt@fp fp `*.39S1308  1 p 2 40 ]
+[v vfpfcnvrt@fmt fmt `*.39*.25uc  1 p 2 42 ]
+[v vfpfcnvrt@ap ap `*.39*.39v  1 p 2 44 ]
+"1543
+} 0
+"470
+[v _dtoa dtoa `(i  1 s 2 dtoa ]
+{
+"473
+[v dtoa@i i `i  1 a 2 37 ]
+[v dtoa@w w `i  1 a 2 35 ]
+[v dtoa@p p `i  1 a 2 33 ]
+"472
+[v dtoa@s s `uc  1 a 1 39 ]
+[s S1308 _IO_FILE 0 ]
+"470
+[v dtoa@fp fp `*.39S1308  1 p 2 27 ]
+[v dtoa@d d `i  1 p 2 29 ]
+"527
+} 0
+"152
+[v _pad pad `(i  1 s 2 pad ]
+{
+"154
+[v pad@w w `i  1 a 2 25 ]
+[v pad@i i `i  1 a 2 23 ]
+[s S1308 _IO_FILE 0 ]
+"152
+[v pad@fp fp `*.39S1308  1 p 2 16 ]
+[v pad@buf buf `*.39uc  1 p 2 18 ]
+[v pad@p p `i  1 p 2 20 ]
+"183
+} 0
+"5 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\strlen.c
+[v _strlen strlen `(ui  1 e 2 0 ]
+{
+"7
+[v strlen@a a `*.39Cuc  1 a 2 2 ]
+"5
+[v strlen@s s `*.39Cuc  1 p 2 0 ]
+"12
+} 0
+"8 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\nf_fputs.c
+[v _fputs fputs `(i  1 e 2 0 ]
+{
+"11
+[v fputs@i i `i  1 a 2 14 ]
+"10
+[v fputs@c c `uc  1 a 1 13 ]
+"8
+[v fputs@s s `*.39Cuc  1 p 2 9 ]
+[u S1273 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+[s S1276 _IO_FILE 12 `S1273 1 . 3 0 `i 1 count 2 3 `[3]uc 1 ungetbuf 3 5 `i 1 ungetcnt 2 8 `i 1 limit 2 10 ]
+[v fputs@fp fp `*.39S1276  1 p 2 11 ]
+"19
+} 0
+"8 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\nf_fputc.c
+[v _fputc fputc `(i  1 e 2 0 ]
+{
+[v fputc@c c `i  1 p 2 0 ]
+[u S1273 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+[s S1276 _IO_FILE 12 `S1273 1 . 3 0 `i 1 count 2 3 `[3]uc 1 ungetbuf 3 5 `i 1 ungetcnt 2 8 `i 1 limit 2 10 ]
+[v fputc@fp fp `*.39S1276  1 p 2 2 ]
 "24
-[s S330 . 8 `[4]S24 1 keypad_rows_pins 4 0 `[4]S24 1 keypad_columns_pins 4 4 ]
-[v keypad_initialize@keypad keypad `*.39CS330  1 p 2 14 ]
-"38
+} 0
+"7 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\putch.c
+[v _putch putch `(v  1 e 1 0 ]
+{
+"9
+} 0
+"1 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\abs.c
+[v _abs abs `(i  1 e 2 0 ]
+{
+[v abs@a a `i  1 p 2 6 ]
+"4
+} 0
+"7 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
+{
+"10
+[v ___awmod@sign sign `uc  1 a 1 5 ]
+[v ___awmod@counter counter `uc  1 a 1 4 ]
+"7
+[v ___awmod@dividend dividend `i  1 p 2 0 ]
+[v ___awmod@divisor divisor `i  1 p 2 2 ]
+"34
+} 0
+"7 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+{
+"10
+[v ___awdiv@quotient quotient `i  1 a 2 6 ]
+"11
+[v ___awdiv@sign sign `uc  1 a 1 5 ]
+[v ___awdiv@counter counter `uc  1 a 1 4 ]
+"7
+[v ___awdiv@dividend dividend `i  1 p 2 0 ]
+[v ___awdiv@divisor divisor `i  1 p 2 2 ]
+"41
+} 0
+"4 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\memset.c
+[v _memset memset `(*.39v  1 e 2 0 ]
+{
+"6
+[v memset@s s `*.39uc  1 a 2 10 ]
+"7
+[v memset@k k `ui  1 a 2 8 ]
+"4
+[v memset@dest dest `*.39v  1 p 2 0 ]
+[v memset@c c `i  1 p 2 2 ]
+[v memset@n n `ui  1 p 2 4 ]
+"90
+} 0
+"146 G:\Embedded\Rabeh\interfacing\application.c
+[v _application_initialize application_initialize `(v  1 e 1 0 ]
+{
+"149
+} 0
+"139 G:\Embedded\Rabeh\interfacing\ECU_Layer/LCD/ecu_lcd.c
+[v _lcd_8bit_initialize lcd_8bit_initialize `(uc  1 e 1 0 ]
+{
+"147
+[v lcd_8bit_initialize@pin pin `uc  1 a 1 26 ]
+"140
+[v lcd_8bit_initialize@ret ret `uc  1 a 1 27 ]
+[s S24 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+"139
+[s S471 . 10 `S24 1 lcd_rs 1 0 `S24 1 lcd_en 1 1 `[8]S24 1 lcd_data 8 2 ]
+[v lcd_8bit_initialize@lcd lcd `*.39CS471  1 p 2 22 ]
+"163
+} 0
+"170
+[v _lcd_8bit_send_command lcd_8bit_send_command `(uc  1 e 1 0 ]
+{
+"177
+[v lcd_8bit_send_command@pin pin `uc  1 a 1 21 ]
+"171
+[v lcd_8bit_send_command@ret ret `uc  1 a 1 20 ]
+[s S24 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+"170
+[s S471 . 10 `S24 1 lcd_rs 1 0 `S24 1 lcd_en 1 1 `[8]S24 1 lcd_data 8 2 ]
+[v lcd_8bit_send_command@lcd lcd `*.39CS471  1 p 2 13 ]
+[v lcd_8bit_send_command@command command `uc  1 p 1 15 ]
+"183
+} 0
+"355
+[v _lcd_8bit_send_enable lcd_8bit_send_enable `(uc  1 s 1 lcd_8bit_send_enable ]
+{
+"356
+[v lcd_8bit_send_enable@ret ret `uc  1 a 1 12 ]
+[s S24 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+"355
+[s S471 . 10 `S24 1 lcd_rs 1 0 `S24 1 lcd_en 1 1 `[8]S24 1 lcd_data 8 2 ]
+[v lcd_8bit_send_enable@lcd lcd `*.39CS471  1 p 2 10 ]
+"366
 } 0
 "122 G:\Embedded\Rabeh\interfacing\MCAL_Layer/GPIO/hal_gpio.c
 [v _gpio_pin_initialize gpio_pin_initialize `(uc  1 e 1 0 ]
@@ -231,6 +590,21 @@ GPIO_HIGH 1
 [v gpio_pin_initialize@pin_config pin_config `*.39CS24  1 p 2 10 ]
 "133
 } 0
+"74
+[v _gpio_pin_write_logic gpio_pin_write_logic `(uc  1 e 1 0 ]
+{
+"75
+[v gpio_pin_write_logic@ret ret `uc  1 a 1 9 ]
+[s S24 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+"74
+[v gpio_pin_write_logic@pin_config pin_config `*.39CS24  1 p 2 0 ]
+[v gpio_pin_write_logic@logic logic `E2968  1 p 1 2 ]
+"91
+} 0
 "22
 [v _gpio_pin_direction_initialize gpio_pin_direction_initialize `(uc  1 e 1 0 ]
 {
@@ -244,63 +618,4 @@ GPIO_HIGH 1
 "22
 [v gpio_pin_direction_initialize@pin_config pin_config `*.39CS24  1 p 2 0 ]
 "40
-} 0
-"48 G:\Embedded\Rabeh\interfacing\ECU_Layer/Keypad/ecu_keypad.c
-[v _keypad_get_value keypad_get_value `(uc  1 e 1 0 ]
-{
-"60
-[v keypad_get_value@col_counter col_counter `uc  1 a 1 20 ]
-"56
-[v keypad_get_value@row_counter2 row_counter2 `uc  1 a 1 18 ]
-"55
-[v keypad_get_value@row_counter row_counter `uc  1 a 1 19 ]
-"50
-[v keypad_get_value@col_logic col_logic `uc  1 a 1 17 ]
-"49
-[v keypad_get_value@ret ret `uc  1 a 1 16 ]
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-"48
-[s S330 . 8 `[4]S24 1 keypad_rows_pins 4 0 `[4]S24 1 keypad_columns_pins 4 4 ]
-[v keypad_get_value@keypad keypad `*.39CS330  1 p 2 10 ]
-[v keypad_get_value@value value `*.39uc  1 p 2 12 ]
-"69
-} 0
-"74 G:\Embedded\Rabeh\interfacing\MCAL_Layer/GPIO/hal_gpio.c
-[v _gpio_pin_write_logic gpio_pin_write_logic `(uc  1 e 1 0 ]
-{
-"75
-[v gpio_pin_write_logic@ret ret `uc  1 a 1 9 ]
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-"74
-[v gpio_pin_write_logic@pin_config pin_config `*.39CS24  1 p 2 0 ]
-[v gpio_pin_write_logic@logic logic `E2480  1 p 1 2 ]
-"91
-} 0
-"102
-[v _gpio_pin_read_logic gpio_pin_read_logic `(uc  1 e 1 0 ]
-{
-"103
-[v gpio_pin_read_logic@ret ret `uc  1 a 1 9 ]
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-"102
-[v gpio_pin_read_logic@pin_config pin_config `*.39CS24  1 p 2 0 ]
-[v gpio_pin_read_logic@logic logic `*.39E2480  1 p 2 2 ]
-"111
-} 0
-"73 G:\Embedded\Rabeh\interfacing\application.c
-[v _application_initialize application_initialize `(v  1 e 1 0 ]
-{
-"75
 } 0
