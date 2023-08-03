@@ -16,6 +16,7 @@
 #include "ECU_Layer/7_Segment/ecu_seven_segment.h"
 #include "ECU_Layer/Keypad/ecu_keypad.h"
 #include "ECU_Layer/LCD/ecu_lcd.h"
+#include "MCAL_Layer/Interrupt/mcal_external_interrupt.h"
 // #define _XTAL_FREQ 8000000UL
 
 

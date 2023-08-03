@@ -12,138 +12,75 @@
 #include "application.h"
 
 
-std_ReturnType ret = E_NOT_OK; 
+
 void application_initialize(void);
+std_ReturnType ret = E_NOT_OK; 
 
-
-lcd_4bit_t lcd1_4 ={
-  .lcd_rs.port = PORTC_INDEX,
-  .lcd_rs.pin = GPIO_PIN0,
-  .lcd_rs.direction = GPIO_DIRECTION_OUTPUT,
-  .lcd_rs.logic = GPIO_LOW,
-  
-  .lcd_en.port = PORTC_INDEX,
-  .lcd_en.pin = GPIO_PIN1,
-  .lcd_en.direction = GPIO_DIRECTION_OUTPUT,
-  .lcd_en.logic = GPIO_LOW,
-  
-  .lcd_data[0].port = PORTC_INDEX,
-  .lcd_data[0].pin = GPIO_PIN2,
-  .lcd_data[0].direction = GPIO_DIRECTION_OUTPUT,
-  .lcd_data[0].logic = GPIO_LOW, 
-  .lcd_data[1].port = PORTC_INDEX,
-  .lcd_data[1].pin = GPIO_PIN3,
-  .lcd_data[1].direction = GPIO_DIRECTION_OUTPUT,
-  .lcd_data[1].logic = GPIO_LOW, 
-  .lcd_data[2].port = PORTC_INDEX,
-  .lcd_data[2].pin = GPIO_PIN4,
-  .lcd_data[2].direction = GPIO_DIRECTION_OUTPUT,
-  .lcd_data[2].logic = GPIO_LOW,
-  .lcd_data[3].port = PORTC_INDEX,
-  .lcd_data[3].pin = GPIO_PIN5,
-  .lcd_data[3].direction = GPIO_DIRECTION_OUTPUT,
-  .lcd_data[3].logic = GPIO_LOW,
+led_t led1 = {
+    .port = PORTC_INDEX,
+    .pin = GPIO_PIN0,
+    .led_status = GPIO_LOW
+};
+led_t led2 = {
+    .port = PORTC_INDEX,
+    .pin = GPIO_PIN1,
+    .led_status = GPIO_LOW
 };
 
-lcd_8bit_t lcd2_8 ={
-  .lcd_rs.port = PORTC_INDEX,
-  .lcd_rs.pin = GPIO_PIN6,
-  .lcd_rs.direction = GPIO_DIRECTION_OUTPUT,
-  .lcd_rs.logic = GPIO_LOW,
-  
-  .lcd_en.port = PORTC_INDEX,
-  .lcd_en.pin = GPIO_PIN7,
-  .lcd_en.direction = GPIO_DIRECTION_OUTPUT,
-  .lcd_en.logic = GPIO_LOW,
-  
-  .lcd_data[0].port = PORTD_INDEX,
-  .lcd_data[0].pin = GPIO_PIN0,
-  .lcd_data[0].direction = GPIO_DIRECTION_OUTPUT,
-  .lcd_data[0].logic = GPIO_LOW, 
-  .lcd_data[1].port = PORTD_INDEX,
-  .lcd_data[1].pin = GPIO_PIN1,
-  .lcd_data[1].direction = GPIO_DIRECTION_OUTPUT,
-  .lcd_data[1].logic = GPIO_LOW, 
-  .lcd_data[2].port = PORTD_INDEX,
-  .lcd_data[2].pin = GPIO_PIN2,
-  .lcd_data[2].direction = GPIO_DIRECTION_OUTPUT,
-  .lcd_data[2].logic = GPIO_LOW,
-  .lcd_data[3].port = PORTD_INDEX,
-  .lcd_data[3].pin = GPIO_PIN3,
-  .lcd_data[3].direction = GPIO_DIRECTION_OUTPUT,
-  .lcd_data[3].logic = GPIO_LOW,
-  .lcd_data[4].port = PORTD_INDEX,
-  .lcd_data[4].pin = GPIO_PIN4,
-  .lcd_data[4].direction = GPIO_DIRECTION_OUTPUT,
-  .lcd_data[4].logic = GPIO_LOW,
-  .lcd_data[5].port = PORTD_INDEX,
-  .lcd_data[5].pin = GPIO_PIN5,
-  .lcd_data[5].direction = GPIO_DIRECTION_OUTPUT,
-  .lcd_data[5].logic = GPIO_LOW,
-  .lcd_data[6].port = PORTD_INDEX,
-  .lcd_data[6].pin = GPIO_PIN6,
-  .lcd_data[6].direction = GPIO_DIRECTION_OUTPUT,
-  .lcd_data[6].logic = GPIO_LOW,
-  .lcd_data[7].port = PORTD_INDEX,
-  .lcd_data[7].pin = GPIO_PIN7,
-  .lcd_data[7].direction = GPIO_DIRECTION_OUTPUT,
-  .lcd_data[7].logic = GPIO_LOW,
-};
-uint8 number = 23;
-uint8 number_txt[3];
 
-const uint8 customChar1[] = {
-  0x0E,
-  0x0A,
-  0x11,
-  0x11,
-  0x11,
-  0x11,
-  0x1F,
-  0x00
+void RB4_APP_ISR_HIGH(void){
+    led_turn_on(&led1);
+    
+}
+void RB4_APP_ISR_LOW(void){
+    led_turn_off(&led1);
+}
+
+void RB5_APP_ISR_HIGH(void){
+    led_turn_on(&led2);
+    
+}
+void RB5_APP_ISR_LOW(void){
+    led_turn_off(&led2);
+}
+
+
+
+interrupt_RBx_t obj_rb4 = {
+    .INTERRUPT_HANDLER_HIGH =RB4_APP_ISR_HIGH,
+    .INTERRUPT_HANDLER_LOW = RB4_APP_ISR_LOW,
+    .priority = INTERRUPT_HIGH_PRIORITY,
+    .pin.port = PORTB_INDEX,
+    .pin.pin = GPIO_PIN4,
+    .pin.direction = GPIO_DIRECTION_INPUT,
 };
 
-const uint8 customChar2[]  = {
-  0x0E,
-  0x0A,
-  0x11,
-  0x11,
-  0x11,
-  0x1F,
-  0x1F,
-  0x00
+interrupt_RBx_t obj_rb5 = {
+    .INTERRUPT_HANDLER_HIGH =RB5_APP_ISR_HIGH,
+    .INTERRUPT_HANDLER_LOW = RB5_APP_ISR_LOW,
+    .priority = INTERRUPT_HIGH_PRIORITY,
+    .pin.port = PORTB_INDEX,
+    .pin.pin = GPIO_PIN5,
+    .pin.direction = GPIO_DIRECTION_INPUT,
 };
-
-const uint8 customChar3[] = {
-  0x0E,
-  0x0A,
-  0x11,
-  0x11,
-  0x1F,
-  0x1F,
-  0x1F,
-  0x00
-};
-
 
 int main() {
-     
-    application_initialize();
-    ret = lcd_8bit_send_string(&lcd2_8 , "RabehMohamed");
+    ret = interrupt_RBx_init(&obj_rb4); 
+    ret = interrupt_RBx_init(&obj_rb5);
+    ret = led_initialize(&led1);
+    ret = led_initialize(&led2);
     
-    ret = convert_uint8_to_string(number , number_txt);
-    ret = lcd_8bit_send_string(&lcd2_8 , number_txt);
+    
+    application_initialize();
+    
     
     
     
     while(1){
-        ret = lcd_8bit_send_cutsom_char(&lcd2_8 ,customChar1 , 1 , 12 , 0 );
-        ret = lcd_8bit_send_cutsom_char(&lcd2_8 ,customChar2 , 1 , 12 , 0 );
-        ret = lcd_8bit_send_cutsom_char(&lcd2_8 ,customChar3 , 1 , 12 , 0 );
+        
     }
     return (EXIT_SUCCESS);
 }
 void application_initialize(void){
     
-    ret = lcd_8bit_initialize(&lcd2_8);
 }
